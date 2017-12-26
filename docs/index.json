@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport HelloWorld from './components';\nimport logo from './logo.svg';\nimport './App.css';\n\n\n\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <HelloWorld />\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport HelloWorld from './components';\nimport logo from './logo.svg';\nimport './App.css';\n\n\n\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <HelloWorld name=\"Tony\" />\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/App.js",
     "access": "public",
@@ -629,7 +629,7 @@
     "__docId__": 52,
     "kind": "file",
     "name": "src/components/HelloWorld.jsx",
-    "content": "import React from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * [styles style folr the Component]\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n/**\n * [HelloWorld Presetational component\n * ie, dump render only html]\n */\nconst HelloWorld = () => {\n  return (\n    <p style={styles.hello}>\n      Hello World\n    </p>\n  )\n}\nexport default HelloWorld ;\n",
+    "content": "import React from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * [styles style folr the Component]\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n/**\n * [HelloWorld display hello world.\n *  take props]\n * @param {string} name name of the person\n */\nconst HelloWorld = ({name}) => {\n  return (\n    <p style={styles.hello}>\n      Hello {name}\n    </p>\n  )\n}\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World',\n};\nexport default HelloWorld ;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/HelloWorld.jsx",
     "access": "public",
@@ -672,9 +672,20 @@
     "export": true,
     "importPath": "ReactIntro/src/components/HelloWorld.jsx",
     "importStyle": "HelloWorld",
-    "description": "[HelloWorld Presetational component\nie, dump render only html]",
-    "lineNumber": 20,
-    "params": [],
+    "description": "[HelloWorld display hello world.\n take props]",
+    "lineNumber": 21,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "name of the person"
+      }
+    ],
     "return": {
       "types": [
         "*"

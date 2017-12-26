@@ -52,16 +52,25 @@ const styles = {
   },
 };
 /**
- * [HelloWorld Presetational component
- * ie, dump render only html]
+ * [HelloWorld display hello world.
+ *  take props]
+ * @param {string} name name of the person
  */
-const HelloWorld = () =&gt; {
+const HelloWorld = ({name}) =&gt; {
   return (
     &lt;p style={styles.hello}&gt;
-      Hello World
+      Hello {name}
     &lt;/p&gt;
   )
 }
+
+HelloWorld.propTypes = {
+  name: PropTypes.string.isRequired, // name is required of string type
+};
+
+HelloWorld.defaultProps = {
+  name: &apos;World&apos;,
+};
 export default HelloWorld ;
 </code></pre>
 
