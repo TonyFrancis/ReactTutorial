@@ -76,6 +76,7 @@
             }
           }
         ],
+        "importKind": "value",
         "source": {
           "type": "StringLiteral",
           "start": 18,
@@ -145,6 +146,7 @@
             }
           }
         ],
+        "importKind": "value",
         "source": {
           "type": "StringLiteral",
           "start": 48,
@@ -250,6 +252,7 @@
             }
           }
         ],
+        "importKind": "value",
         "source": {
           "type": "StringLiteral",
           "start": 99,
@@ -319,6 +322,7 @@
             }
           }
         ],
+        "importKind": "value",
         "source": {
           "type": "StringLiteral",
           "start": 142,

@@ -4,7 +4,9 @@
   "private": true,
   "devDependencies": {
     "esdoc": "^1.0.4",
+    "esdoc-flow-type-plugin": "^1.0.1",
     "esdoc-jsx-plugin": "^1.0.0",
+    "esdoc-named-import-plugin": "0.0.0",
     "esdoc-standard-plugin": "^1.0.0",
     "react-scripts": "1.0.17"
   },

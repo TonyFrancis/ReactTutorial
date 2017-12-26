@@ -1,22 +1,23 @@
 {
-  "coverage": "28.57%",
-  "expectCount": 7,
-  "actualCount": 2,
+  "coverage": "88.88%",
+  "expectCount": 9,
+  "actualCount": 8,
   "files": {
     "src/App.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
     },
+    "src/components/HelloWorld.jsx": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
     "src/registerServiceWorker.js": {
       "expectCount": 5,
-      "actualCount": 0,
+      "actualCount": 4,
       "undocumentLines": [
-        11,
-        21,
-        46,
-        75,
-        102
+        11
       ]
     }
   }

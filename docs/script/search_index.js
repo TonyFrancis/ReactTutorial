@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "reactintro/src/components/helloworld.jsx~helloworld",
+    "function/index.html#static-function-HelloWorld",
+    "<span>HelloWorld</span> <span class=\"search-result-import-path\">ReactIntro/src/components/HelloWorld.jsx</span>",
+    "function"
+  ],
+  [
     "reactintro/src/registerserviceworker.js~register",
     "function/index.html#static-function-register",
     "<span>register</span> <span class=\"search-result-import-path\">ReactIntro/src/registerServiceWorker.js</span>",
@@ -310,6 +316,18 @@ window.esdocSearchIndex = [
     "class/src/App.js~App.html#instance-method-render",
     "src/App.js~App#render",
     "method"
+  ],
+  [
+    "src/components/helloworld.jsx",
+    "file/src/components/HelloWorld.jsx.html",
+    "src/components/HelloWorld.jsx",
+    "file"
+  ],
+  [
+    "src/components/index.jsx",
+    "file/src/components/index.jsx.html",
+    "src/components/index.jsx",
+    "file"
   ],
   [
     "src/index.js",

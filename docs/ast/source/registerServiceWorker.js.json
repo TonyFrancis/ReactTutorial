@@ -2041,7 +2041,12 @@
             ],
             "directives": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n"
+            }
+          ],
           "trailingComments": []
         }
       },
@@ -3496,7 +3501,13 @@
             }
           ],
           "directives": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @param \n * {*} swUrl \n"
+          }
+        ]
       },
       {
         "type": "FunctionDeclaration",
@@ -4971,7 +4982,13 @@
             }
           ],
           "directives": []
-        }
+        },
+        "leadingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * @param \n * {*} swUrl \n"
+          }
+        ]
       },
       {
         "type": "ExportNamedDeclaration",
@@ -5414,9 +5431,15 @@
             ],
             "directives": []
           },
-          "leadingComments": [],
+          "leadingComments": [
+            {
+              "type": "CommentBlock",
+              "value": "*\n"
+            }
+          ],
           "trailingComments": []
-        }
+        },
+        "exportKind": "value"
       }
     ],
     "directives": []
