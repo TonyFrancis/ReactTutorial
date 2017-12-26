@@ -7,9 +7,9 @@ window.esdocSearchIndex = [
   ],
   [
     "reactintro/src/components/helloworld.jsx~helloworld",
-    "function/index.html#static-function-HelloWorld",
+    "class/src/components/HelloWorld.jsx~HelloWorld.html",
     "<span>HelloWorld</span> <span class=\"search-result-import-path\">ReactIntro/src/components/HelloWorld.jsx</span>",
-    "function"
+    "class"
   ],
   [
     "src/.external-ecmascript.js~array",
@@ -316,6 +316,24 @@ window.esdocSearchIndex = [
     "file/src/components/HelloWorld.jsx.html",
     "src/components/HelloWorld.jsx",
     "file"
+  ],
+  [
+    "src/components/helloworld.jsx~helloworld#constructor",
+    "class/src/components/HelloWorld.jsx~HelloWorld.html#instance-constructor-constructor",
+    "src/components/HelloWorld.jsx~HelloWorld#constructor",
+    "method"
+  ],
+  [
+    "src/components/helloworld.jsx~helloworld#render",
+    "class/src/components/HelloWorld.jsx~HelloWorld.html#instance-method-render",
+    "src/components/HelloWorld.jsx~HelloWorld#render",
+    "method"
+  ],
+  [
+    "src/components/helloworld.jsx~helloworld#state",
+    "class/src/components/HelloWorld.jsx~HelloWorld.html#instance-member-state",
+    "src/components/HelloWorld.jsx~HelloWorld#state",
+    "member"
   ],
   [
     "src/components/index.jsx",

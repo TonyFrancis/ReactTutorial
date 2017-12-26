@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 /**
- * [styles style folr the Component]
+ * style folr the Component
  * @type {Object}
  */
 const styles = {
@@ -13,18 +13,46 @@ const styles = {
     // eg background-color => backgroundColor ....
   },
 };
+
 /**
- * [HelloWorld display hello world.
- *  take props]
- * @param {string} name name of the person
+ * HelloWorld react class component to display hello {name}
+ *  this.state varible retain memory of the component to be used later.
+ * @extends Component
  */
-const HelloWorld = ({name}) => {
-  return (
-    <p style={styles.hello}>
-      Hello {name}
-    </p>
-  )
+class HelloWorld extends Component {
+  /**
+   *  init function set inital value for the component
+   * @param  {object} props [object with key "name"]
+   */
+  constructor(props) {
+    super(props); // needed ( inheritance )
+    /**
+     * state hold data about component at any instance
+     * @type {Object}
+     */
+    this.state = {
+      name: props.name,
+    };
+  }
+  /**
+   *  html part of the component
+   * @return {ReactElement(div)} div component to be displayed
+   */
+  render() {
+    return (
+      <div>
+        <p style={styles.hello}>
+          hello {this.state.name}
+        </p>
+        <input
+          value={this.state.name}
+          onChange={ e => this.setState({ name: e.target.value})}
+          />
+      </div>
+    )
+  }
 }
+
 
 HelloWorld.propTypes = {
   name: PropTypes.string.isRequired, // name is required of string type

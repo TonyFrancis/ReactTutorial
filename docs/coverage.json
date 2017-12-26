@@ -1,7 +1,7 @@
 {
   "coverage": "100%",
-  "expectCount": 4,
-  "actualCount": 4,
+  "expectCount": 7,
+  "actualCount": 7,
   "files": {
     "src/App.js": {
       "expectCount": 2,
@@ -9,8 +9,8 @@
       "undocumentLines": []
     },
     "src/components/HelloWorld.jsx": {
-      "expectCount": 2,
-      "actualCount": 2,
+      "expectCount": 5,
+      "actualCount": 5,
       "undocumentLines": []
     }
   }

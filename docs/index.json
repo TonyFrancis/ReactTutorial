@@ -629,7 +629,7 @@
     "__docId__": 52,
     "kind": "file",
     "name": "src/components/HelloWorld.jsx",
-    "content": "import React from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * [styles style folr the Component]\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n/**\n * [HelloWorld display hello world.\n *  take props]\n * @param {string} name name of the person\n */\nconst HelloWorld = ({name}) => {\n  return (\n    <p style={styles.hello}>\n      Hello {name}\n    </p>\n  )\n}\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World',\n};\nexport default HelloWorld ;\n",
+    "content": "import React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * style folr the Component\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n\n/**\n * HelloWorld react class component to display hello {name}\n *  this.state varible retain memory of the component to be used later.\n * @extends Component\n */\nclass HelloWorld extends Component {\n  /**\n   *  init function set inital value for the component\n   * @param  {object} props [object with key \"name\"]\n   */\n  constructor(props) {\n    super(props); // needed ( inheritance )\n    /**\n     * state hold data about component at any instance\n     * @type {Object}\n     */\n    this.state = {\n      name: props.name,\n    };\n  }\n  /**\n   *  html part of the component\n   * @return {ReactElement(div)} div component to be displayed\n   */\n  render() {\n    return (\n      <div>\n        <p style={styles.hello}>\n          hello {this.state.name}\n        </p>\n        <input\n          value={this.state.name}\n          onChange={ e => this.setState({ name: e.target.value})}\n          />\n      </div>\n    )\n  }\n}\n\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World', // default value for name is given\n};\nexport default HelloWorld ;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/HelloWorld.jsx",
     "access": "public",
@@ -647,7 +647,7 @@
     "export": false,
     "importPath": "ReactIntro/src/components/HelloWorld.jsx",
     "importStyle": null,
-    "description": "[styles style folr the Component]",
+    "description": "style folr the Component",
     "lineNumber": 8,
     "type": {
       "nullable": null,
@@ -661,39 +661,90 @@
   },
   {
     "__docId__": 54,
-    "kind": "function",
+    "kind": "class",
     "name": "HelloWorld",
     "memberof": "src/components/HelloWorld.jsx",
-    "generator": false,
-    "async": false,
     "static": true,
     "longname": "src/components/HelloWorld.jsx~HelloWorld",
     "access": "public",
     "export": true,
     "importPath": "ReactIntro/src/components/HelloWorld.jsx",
     "importStyle": "HelloWorld",
-    "description": "[HelloWorld display hello world.\n take props]",
-    "lineNumber": 21,
+    "description": "HelloWorld react class component to display hello {name}\n this.state varible retain memory of the component to be used later.",
+    "lineNumber": 22,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 55,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/HelloWorld.jsx~HelloWorld",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/HelloWorld.jsx~HelloWorld#constructor",
+    "access": "public",
+    "description": " init function set inital value for the component",
+    "lineNumber": 27,
     "params": [
       {
         "nullable": null,
         "types": [
-          "string"
+          "object"
         ],
         "spread": false,
         "optional": false,
-        "name": "name",
-        "description": "name of the person"
+        "name": "props",
+        "description": "[object with key \"name\"]"
       }
-    ],
-    "return": {
+    ]
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/HelloWorld.jsx~HelloWorld",
+    "static": false,
+    "longname": "src/components/HelloWorld.jsx~HelloWorld#state",
+    "access": "public",
+    "description": "state hold data about component at any instance",
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
+        "Object"
+      ],
+      "spread": false,
+      "description": null
     }
   },
   {
-    "__docId__": 55,
+    "__docId__": 57,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/HelloWorld.jsx~HelloWorld",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/HelloWorld.jsx~HelloWorld#render",
+    "access": "public",
+    "description": " html part of the component ",
+    "lineNumber": 41,
+    "return": {
+      "nullable": null,
+      "types": [
+        "ReactElement(div)"
+      ],
+      "spread": false,
+      "description": "div component to be displayed"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 58,
     "kind": "file",
     "name": "src/components/index.jsx",
     "content": "import HelloWorld from './HelloWorld';\nexport default HelloWorld;\n",
@@ -704,7 +755,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 56,
+    "__docId__": 59,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",

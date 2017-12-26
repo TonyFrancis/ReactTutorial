@@ -30,17 +30,17 @@
   <ul>
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-HelloWorld">HelloWorld</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/HelloWorld.jsx</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
 import PropTypes from &apos;prop-types&apos;;
 
 /**
- * [styles style folr the Component]
+ * style folr the Component
  * @type {Object}
  */
 const styles = {
@@ -51,25 +51,53 @@ const styles = {
     // eg background-color =&gt; backgroundColor ....
   },
 };
+
 /**
- * [HelloWorld display hello world.
- *  take props]
- * @param {string} name name of the person
+ * HelloWorld react class component to display hello {name}
+ *  this.state varible retain memory of the component to be used later.
+ * @extends Component
  */
-const HelloWorld = ({name}) =&gt; {
-  return (
-    &lt;p style={styles.hello}&gt;
-      Hello {name}
-    &lt;/p&gt;
-  )
+class HelloWorld extends Component {
+  /**
+   *  init function set inital value for the component
+   * @param  {object} props [object with key &quot;name&quot;]
+   */
+  constructor(props) {
+    super(props); // needed ( inheritance )
+    /**
+     * state hold data about component at any instance
+     * @type {Object}
+     */
+    this.state = {
+      name: props.name,
+    };
+  }
+  /**
+   *  html part of the component
+   * @return {ReactElement(div)} div component to be displayed
+   */
+  render() {
+    return (
+      &lt;div&gt;
+        &lt;p style={styles.hello}&gt;
+          hello {this.state.name}
+        &lt;/p&gt;
+        &lt;input
+          value={this.state.name}
+          onChange={ e =&gt; this.setState({ name: e.target.value})}
+          /&gt;
+      &lt;/div&gt;
+    )
+  }
 }
+
 
 HelloWorld.propTypes = {
   name: PropTypes.string.isRequired, // name is required of string type
 };
 
 HelloWorld.defaultProps = {
-  name: &apos;World&apos;,
+  name: &apos;World&apos;, // default value for name is given
 };
 export default HelloWorld ;
 </code></pre>
