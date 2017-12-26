@@ -38,23 +38,13 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/App.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
+import HelloWorld from &apos;./components/HelloWorld&apos;;
 import logo from &apos;./logo.svg&apos;;
 import &apos;./App.css&apos;;
 
 
 
-/**
- * [styles style folr the Component]
- * @type {Object}
- */
-const styles = {
-  hello: {
-    fontSize: 32,
-    // in react font-size =&gt; fontSize
-    // all foo-bar become fooBar
-    // eg background-color =&gt; backgroundColor ....
-  },
-};
+
 /**
  * App main class diplays Hello World
  * @extends Component
@@ -68,7 +58,7 @@ class App extends Component {
   render() {
     return (
       &lt;div className=&quot;App&quot;&gt;
-        &lt;p style={styles.hello}&gt;hello World&lt;/p&gt;
+        &lt;HelloWorld /&gt;
       &lt;/div&gt;
     );
   }

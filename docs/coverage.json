@@ -1,11 +1,11 @@
 {
-  "coverage": "37.5%",
-  "expectCount": 8,
-  "actualCount": 3,
+  "coverage": "28.57%",
+  "expectCount": 7,
+  "actualCount": 2,
   "files": {
     "src/App.js": {
-      "expectCount": 3,
-      "actualCount": 3,
+      "expectCount": 2,
+      "actualCount": 2,
       "undocumentLines": []
     },
     "src/registerServiceWorker.js": {
