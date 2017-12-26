@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\n\nclass App extends Component {\n  render() {\n    return (\n      <div className=\"App\">\n        <header className=\"App-header\">\n          <img src={logo} className=\"App-logo\" alt=\"logo\" />\n          <h1 className=\"App-title\">Welcome to React</h1>\n        </header>\n        <p className=\"App-intro\">\n          To get started, edit <code>src/App.js</code> and save to reload.\n        </p>\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <p>hello World</p>\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/App.js",
     "access": "public",
@@ -585,12 +585,11 @@
     "export": true,
     "importPath": "ReactIntro/src/App.js",
     "importStyle": "App",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
+    "description": "App main class diplays Hello World",
+    "lineNumber": 9,
     "interface": false,
     "extends": [
-      "react~Component"
+      "*"
     ]
   },
   {
@@ -603,15 +602,17 @@
     "static": false,
     "longname": "src/App.js~App#render",
     "access": "public",
-    "description": null,
-    "lineNumber": 6,
-    "undocument": true,
-    "params": [],
+    "description": "render function to render html Component to\n     reactVirtualDom",
+    "lineNumber": 15,
     "return": {
+      "nullable": null,
       "types": [
-        "*"
-      ]
-    }
+        "[ReactElement(div)]"
+      ],
+      "spread": false,
+      "description": "[Div element]"
+    },
+    "params": []
   },
   {
     "__docId__": 51,

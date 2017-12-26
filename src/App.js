@@ -2,17 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+/**
+ * App main class diplays Hello World
+ * @extends Component
+ */
 class App extends Component {
+  /**
+   * render function to render html Component to
+   *      reactVirtualDom
+   * @return {[ReactElement(div)]} [Div element]
+   */
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <p>hello World</p>
       </div>
     );
   }
