@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <p>hello World</p>\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport logo from './logo.svg';\nimport './App.css';\n\n\n\n/**\n * [styles style folr the Component]\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <p style={styles.hello}>hello World</p>\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/App.js",
     "access": "public",
@@ -576,6 +576,29 @@
   },
   {
     "__docId__": 49,
+    "kind": "variable",
+    "name": "styles",
+    "memberof": "src/App.js",
+    "static": true,
+    "longname": "src/App.js~styles",
+    "access": "public",
+    "export": false,
+    "importPath": "ReactIntro/src/App.js",
+    "importStyle": null,
+    "description": "[styles style folr the Component]",
+    "lineNumber": 11,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    },
+    "ignore": true
+  },
+  {
+    "__docId__": 50,
     "kind": "class",
     "name": "App",
     "memberof": "src/App.js",
@@ -586,14 +609,14 @@
     "importPath": "ReactIntro/src/App.js",
     "importStyle": "App",
     "description": "App main class diplays Hello World",
-    "lineNumber": 9,
+    "lineNumber": 23,
     "interface": false,
     "extends": [
       "*"
     ]
   },
   {
-    "__docId__": 50,
+    "__docId__": 51,
     "kind": "method",
     "name": "render",
     "memberof": "src/App.js~App",
@@ -603,7 +626,7 @@
     "longname": "src/App.js~App#render",
     "access": "public",
     "description": "render function to render html Component to\n     reactVirtualDom",
-    "lineNumber": 15,
+    "lineNumber": 29,
     "return": {
       "nullable": null,
       "types": [
@@ -615,7 +638,7 @@
     "params": []
   },
   {
-    "__docId__": 51,
+    "__docId__": 52,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -626,7 +649,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 53,
     "kind": "file",
     "name": "src/registerServiceWorker.js",
     "content": "// In production, we register a service worker to serve assets from local cache.\n\n// This lets the app load faster on subsequent visits in production, and gives\n// it offline capabilities. However, it also means that developers (and users)\n// will only see deployed updates on the \"N+1\" visit to a page, since previously\n// cached resources are updated in the background.\n\n// To learn more about the benefits of this model, read https://goo.gl/KwvDNy.\n// This link also includes instructions on opting out of this behavior.\n\nconst isLocalhost = Boolean(\n  window.location.hostname === 'localhost' ||\n    // [::1] is the IPv6 localhost address.\n    window.location.hostname === '[::1]' ||\n    // 127.0.0.1/8 is considered localhost for IPv4.\n    window.location.hostname.match(\n      /^127(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/\n    )\n);\n\nexport default function register() {\n  if (process.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {\n    // The URL constructor is available in all browsers that support SW.\n    const publicUrl = new URL(process.env.PUBLIC_URL, window.location);\n    if (publicUrl.origin !== window.location.origin) {\n      // Our service worker won't work if PUBLIC_URL is on a different origin\n      // from what our page is served on. This might happen if a CDN is used to\n      // serve assets; see https://github.com/facebookincubator/create-react-app/issues/2374\n      return;\n    }\n\n    window.addEventListener('load', () => {\n      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;\n\n      if (isLocalhost) {\n        // This is running on localhost. Lets check if a service worker still exists or not.\n        checkValidServiceWorker(swUrl);\n      } else {\n        // Is not local host. Just register service worker\n        registerValidSW(swUrl);\n      }\n    });\n  }\n}\n\nfunction registerValidSW(swUrl) {\n  navigator.serviceWorker\n    .register(swUrl)\n    .then(registration => {\n      registration.onupdatefound = () => {\n        const installingWorker = registration.installing;\n        installingWorker.onstatechange = () => {\n          if (installingWorker.state === 'installed') {\n            if (navigator.serviceWorker.controller) {\n              // At this point, the old content will have been purged and\n              // the fresh content will have been added to the cache.\n              // It's the perfect time to display a \"New content is\n              // available; please refresh.\" message in your web app.\n              console.log('New content is available; please refresh.');\n            } else {\n              // At this point, everything has been precached.\n              // It's the perfect time to display a\n              // \"Content is cached for offline use.\" message.\n              console.log('Content is cached for offline use.');\n            }\n          }\n        };\n      };\n    })\n    .catch(error => {\n      console.error('Error during service worker registration:', error);\n    });\n}\n\nfunction checkValidServiceWorker(swUrl) {\n  // Check if the service worker can be found. If it can't reload the page.\n  fetch(swUrl)\n    .then(response => {\n      // Ensure service worker exists, and that we really are getting a JS file.\n      if (\n        response.status === 404 ||\n        response.headers.get('content-type').indexOf('javascript') === -1\n      ) {\n        // No service worker found. Probably a different app. Reload the page.\n        navigator.serviceWorker.ready.then(registration => {\n          registration.unregister().then(() => {\n            window.location.reload();\n          });\n        });\n      } else {\n        // Service worker found. Proceed as normal.\n        registerValidSW(swUrl);\n      }\n    })\n    .catch(() => {\n      console.log(\n        'No internet connection found. App is running in offline mode.'\n      );\n    });\n}\n\nexport function unregister() {\n  if ('serviceWorker' in navigator) {\n    navigator.serviceWorker.ready.then(registration => {\n      registration.unregister();\n    });\n  }\n}\n",
@@ -637,7 +660,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 54,
     "kind": "variable",
     "name": "isLocalhost",
     "memberof": "src/registerServiceWorker.js",
@@ -658,7 +681,7 @@
     "ignore": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 55,
     "kind": "function",
     "name": "register",
     "memberof": "src/registerServiceWorker.js",
@@ -677,7 +700,7 @@
     "return": null
   },
   {
-    "__docId__": 55,
+    "__docId__": 56,
     "kind": "function",
     "name": "registerValidSW",
     "memberof": "src/registerServiceWorker.js",
@@ -704,7 +727,7 @@
     "ignore": true
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "function",
     "name": "checkValidServiceWorker",
     "memberof": "src/registerServiceWorker.js",
@@ -731,7 +754,7 @@
     "ignore": true
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "function",
     "name": "unregister",
     "memberof": "src/registerServiceWorker.js",

@@ -2,6 +2,20 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+
+
+/**
+ * [styles style folr the Component]
+ * @type {Object}
+ */
+const styles = {
+  hello: {
+    fontSize: 32,
+    // in react font-size => fontSize
+    // all foo-bar become fooBar
+    // eg background-color => backgroundColor ....
+  },
+};
 /**
  * App main class diplays Hello World
  * @extends Component
@@ -15,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>hello World</p>
+        <p style={styles.hello}>hello World</p>
       </div>
     );
   }
