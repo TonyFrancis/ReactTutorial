@@ -31,13 +31,36 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate.html">ComponentDidUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount.html">ComponentWillMount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps.html">ComponentWillReceiveProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate.html">ComponentWillUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate.html">ShouldComponentUpdate</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/components/index.jsx</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HelloWorld from &apos;./HelloWorld&apos;;
+import {
+  ComponentWillMount,
+  ComponentDidMount,
+  ComponentWillUpdate,
+  ComponentWillReceiveProps,
+  ShouldComponentUpdate,
+  ComponentDidUpdate,
+ } from &apos;./LifeCycle&apos;;
 export default HelloWorld;
+
+export {
+  ComponentWillMount,
+  ComponentDidMount,
+  ComponentWillReceiveProps,
+  ComponentWillUpdate,
+  ShouldComponentUpdate,
+  ComponentDidUpdate,
+};
 </code></pre>
 
 </div>

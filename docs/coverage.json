@@ -1,17 +1,70 @@
 {
-  "coverage": "100%",
-  "expectCount": 7,
-  "actualCount": 7,
+  "coverage": "63.63%",
+  "expectCount": 44,
+  "actualCount": 28,
   "files": {
     "src/App.js": {
-      "expectCount": 2,
+      "expectCount": 4,
       "actualCount": 2,
-      "undocumentLines": []
+      "undocumentLines": [
+        19,
+        21
+      ]
     },
     "src/components/HelloWorld.jsx": {
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
+    },
+    "src/components/LifeCycle/ComponentDidMount.jsx": {
+      "expectCount": 7,
+      "actualCount": 4,
+      "undocumentLines": [
+        8,
+        10,
+        26
+      ]
+    },
+    "src/components/LifeCycle/ComponentDidUpdate.jsx": {
+      "expectCount": 8,
+      "actualCount": 5,
+      "undocumentLines": [
+        8,
+        10,
+        37
+      ]
+    },
+    "src/components/LifeCycle/ComponentWillMount.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        9,
+        11
+      ]
+    },
+    "src/components/LifeCycle/ComponentWillReceiveProps.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        9,
+        12
+      ]
+    },
+    "src/components/LifeCycle/ComponentWillUpdate.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        9,
+        11
+      ]
+    },
+    "src/components/LifeCycle/ShouldComponentUpdate.jsx": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        9,
+        11
+      ]
     }
   }
 }

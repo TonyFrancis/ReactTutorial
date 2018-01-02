@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport HelloWorld from './components';\nimport logo from './logo.svg';\nimport './App.css';\n\n\n\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\">\n        <HelloWorld name=\"Tony\" />\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport HelloWorld, {\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n } from './components';\nimport logo from './logo.svg';\nimport './App.css';\n\n\n\n\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      newProps: \"Old Props\"\n    }\n  }\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <div className=\"App\" onClick={() => this.setState({newProps: \"New Props\" })}>\n        <HelloWorld name=\"Tony\" />\n        <ComponentWillUpdate />\n        <ComponentWillReceiveProps componentWillReceiveProps={this.state.newProps} />\n        <ShouldComponentUpdate />\n        <ComponentDidUpdate />\n      </div>\n    );\n  }\n}\n\nexport default App;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/App.js",
     "access": "public",
@@ -586,7 +586,7 @@
     "importPath": "ReactIntro/src/App.js",
     "importStyle": "App",
     "description": "App main class diplays Hello World",
-    "lineNumber": 13,
+    "lineNumber": 18,
     "interface": false,
     "extends": [
       "*"
@@ -594,6 +594,37 @@
   },
   {
     "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/App.js~App",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/App.js~App#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 19,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/App.js~App",
+    "static": false,
+    "longname": "src/App.js~App#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 21,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"newProps\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 52,
     "kind": "method",
     "name": "render",
     "memberof": "src/App.js~App",
@@ -603,7 +634,7 @@
     "longname": "src/App.js~App#render",
     "access": "public",
     "description": "render function to render html Component to\n     reactVirtualDom ",
-    "lineNumber": 19,
+    "lineNumber": 30,
     "return": {
       "nullable": null,
       "types": [
@@ -615,7 +646,7 @@
     "params": []
   },
   {
-    "__docId__": 51,
+    "__docId__": 53,
     "kind": "file",
     "name": "src/App.test.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\n\nit('renders without crashing', () => {\n  const div = document.createElement('div');\n  ReactDOM.render(<App />, div);\n});\n",
@@ -626,7 +657,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "file",
     "name": "src/components/HelloWorld.jsx",
     "content": "import React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * style folr the Component\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n\n/**\n * HelloWorld react class component to display hello {name}\n *  this.state varible retain memory of the component to be used later.\n * @extends Component\n */\nclass HelloWorld extends Component {\n  /**\n   *  init function set inital value for the component\n   * @param  {object} props [object with key \"name\"]\n   */\n  constructor(props) {\n    super(props); // needed ( inheritance )\n    /**\n     * state hold data about component at any instance\n     * @type {Object}\n     */\n    this.state = {\n      name: props.name,\n    };\n  }\n  /**\n   *  html part of the component\n   * @return {ReactElement(div)} div component to be displayed\n   */\n  render() {\n    return (\n      <div>\n        <p style={styles.hello}>\n          hello {this.state.name}\n        </p>\n        <input\n          value={this.state.name}\n          onChange={ e => this.setState({ name: e.target.value})}\n          />\n      </div>\n    )\n  }\n}\n\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World', // default value for name is given\n};\nexport default HelloWorld ;\n",
@@ -637,7 +668,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 53,
+    "__docId__": 55,
     "kind": "variable",
     "name": "styles",
     "memberof": "src/components/HelloWorld.jsx",
@@ -660,7 +691,7 @@
     "ignore": true
   },
   {
-    "__docId__": 54,
+    "__docId__": 56,
     "kind": "class",
     "name": "HelloWorld",
     "memberof": "src/components/HelloWorld.jsx",
@@ -678,7 +709,7 @@
     ]
   },
   {
-    "__docId__": 55,
+    "__docId__": 57,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -703,7 +734,7 @@
     ]
   },
   {
-    "__docId__": 56,
+    "__docId__": 58,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -722,7 +753,7 @@
     }
   },
   {
-    "__docId__": 57,
+    "__docId__": 59,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -744,10 +775,745 @@
     "params": []
   },
   {
-    "__docId__": 58,
+    "__docId__": 60,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ComponentDidMount.jsx",
+    "content": "import React, { Component } from 'react'\nimport PropTypes from 'prop-types'\n/**\n * Explains componentDidMount and componentWillMount life cycle.\n * @extends Component\n */\nclass ComponentDidMount extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {}\n  }\n  /**\n   * called after object is mounted.\n   * used for library intergration like jquery, charts etc\n   */\n  componentDidMount() {\n    setTimeout( () => {\n      this.div.innerHTML = \"Something Added\"\n    }, 3000)\n\n  }\n  /**\n   * destructor remove all reference varible called before object is removed from DOM\n   */\n  componentWillUnmount() {\n    this.div = null;\n  }\n  render () {\n    return (\n      <div ref={(div) => this.div = div}>\n         Nothing here\n      </div>\n    )\n  }\n}\n\nexport default ComponentDidMount;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ComponentDidMount.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "class",
+    "name": "ComponentDidMount",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ComponentDidMount.jsx",
+    "importStyle": "ComponentDidMount",
+    "description": "Explains componentDidMount and componentWillMount life cycle.",
+    "lineNumber": 7,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 62,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{}"
+      ]
+    }
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#componentDidMount",
+    "access": "public",
+    "description": "called after object is mounted.\nused for library intergration like jquery, charts etc ",
+    "lineNumber": 16,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "componentWillUnmount",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#componentWillUnmount",
+    "access": "public",
+    "description": "destructor remove all reference varible called before object is removed from DOM ",
+    "lineNumber": 25,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 66,
+    "kind": "member",
+    "name": "div",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#div",
+    "access": "public",
+    "description": null,
+    "lineNumber": 26,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 28,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ComponentDidUpdate.jsx",
+    "content": "import React, { Component } from 'react'\nimport PropTypes from 'prop-types'\n/**\n * Explains componentDidUpdate and componentWillMount life cycle.\n * @extends Component\n */\nclass ComponentDidUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      update: false\n    }\n  }\n  /**\n   * called after object is mounted.\n   * used for library intergration like jquery, charts etc\n   */\n  componentDidMount() {\n    setTimeout( () => {\n      this.div.innerHTML = \"Something Added\"\n    }, 3000)\n\n  }\n  /**\n   * called after object updated\n   * used for library intergration\n   * @param  {object} prevProps changed props\n   * @param  {object} prevState changed state\n   */\n  componentDidUpdate(prevProps, prevState) {\n      this.div.innerHTML = \"Something Updated\"\n  }\n  /**\n   * destructor remove all reference varible called before object is removed from DOM\n   */\n  componentWillUnmount() {\n    this.div = null;\n  }\n  render () {\n    return (\n      <div ref={(div) => this.div = div} onClick={() => this.setState({update: true })}>\n         Nothing here\n      </div>\n    )\n  }\n}\n\nexport default ComponentDidUpdate;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ComponentDidUpdate.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "class",
+    "name": "ComponentDidUpdate",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ComponentDidUpdate.jsx",
+    "importStyle": "ComponentDidUpdate",
+    "description": "Explains componentDidUpdate and componentWillMount life cycle.",
+    "lineNumber": 7,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 70,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 71,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 10,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"update\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "componentDidMount",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#componentDidMount",
+    "access": "public",
+    "description": "called after object is mounted.\nused for library intergration like jquery, charts etc ",
+    "lineNumber": 18,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "componentDidUpdate",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#componentDidUpdate",
+    "access": "public",
+    "description": "called after object updated\nused for library intergration ",
+    "lineNumber": 30,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "prevProps changed props"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "prevState changed state"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "componentWillUnmount",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#componentWillUnmount",
+    "access": "public",
+    "description": "destructor remove all reference varible called before object is removed from DOM ",
+    "lineNumber": 36,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "name": "div",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#div",
+    "access": "public",
+    "description": null,
+    "lineNumber": 37,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 39,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 77,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ComponentWillMount.jsx",
+    "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ComponentWillMount extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      componentWillMount: 'Not mounted',\n    }\n  }\n  /**\n   * Will execute this function before mounting function.\n   */\n  componentWillMount() {\n    let that = this;\n    setTimeout(() => {\n      that.setState({ componentWillMount: 'Mounted'})\n    }, 3000);\n  }\n  render () {\n    return (<div>\n      {this.state.componentWillMount}\n    </div>)\n  }\n}\n\nexport default ComponentWillMount;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ComponentWillMount.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 78,
+    "kind": "class",
+    "name": "ComponentWillMount",
+    "memberof": "src/components/LifeCycle/ComponentWillMount.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ComponentWillMount.jsx",
+    "importStyle": "ComponentWillMount",
+    "description": "Shows ComponentWillMount workflow.",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 79,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 80,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"componentWillMount\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 81,
+    "kind": "method",
+    "name": "componentWillMount",
+    "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount#componentWillMount",
+    "access": "public",
+    "description": "Will execute this function before mounting function. ",
+    "lineNumber": 18,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 24,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 83,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ComponentWillReceiveProps.jsx",
+    "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillReceiveProps workflow.\n * @extends Component\n */\nclass ComponentWillReceiveProps extends Component {\n  constructor(props) {\n    super(props);\n    const { componentWillReceiveProps } = props;\n    this.state = {\n      componentWillReceiveProps\n    }\n  }\n  /**\n   * when props change this function is executed\n   * @param  {object} nextProps changes to props\n   */\n  componentWillReceiveProps(nextProps) {\n    const { componentWillReceiveProps } = nextProps;\n    console.log(\"Update the props\")\n    this.setState({ componentWillReceiveProps })\n  }\n  render () {\n    return (<div>\n      {this.state.componentWillReceiveProps}\n    </div>)\n  }\n}\n\nexport default ComponentWillReceiveProps;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ComponentWillReceiveProps.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 84,
+    "kind": "class",
+    "name": "ComponentWillReceiveProps",
+    "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ComponentWillReceiveProps.jsx",
+    "importStyle": "ComponentWillReceiveProps",
+    "description": "Shows ComponentWillReceiveProps workflow.",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 85,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 86,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 12,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"componentWillReceiveProps\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "componentWillReceiveProps",
+    "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps#componentWillReceiveProps",
+    "access": "public",
+    "description": "when props change this function is executed ",
+    "lineNumber": 20,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "nextProps changes to props"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 88,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 25,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ComponentWillUpdate.jsx",
+    "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ComponentWillUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      componentWillUpdate: 'Not Updated',\n    }\n  }\n/**\n * called after state update and new props before rendering\n * @param  {object} nextProps change to props\n * @param  {object} nextState change to state\n */\n  componentWillUpdate(nextProps, nextState) {\n    /*\n      No State change is applied here.\n     */\n      console.log(nextState)\n  }\n  render () {\n    return (<div onClick={() => {\n      this.setState({ componentWillUpdate: 'Updated' })}\n    }>\n      {this.state.componentWillUpdate}\n    </div>)\n  }\n}\n\nexport default ComponentWillUpdate;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ComponentWillUpdate.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 90,
+    "kind": "class",
+    "name": "ComponentWillUpdate",
+    "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ComponentWillUpdate.jsx",
+    "importStyle": "ComponentWillUpdate",
+    "description": "Shows ComponentWillMount workflow.",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 91,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 92,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"componentWillUpdate\": string}"
+      ]
+    }
+  },
+  {
+    "__docId__": 93,
+    "kind": "method",
+    "name": "componentWillUpdate",
+    "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate#componentWillUpdate",
+    "access": "public",
+    "description": "called after state update and new props before rendering ",
+    "lineNumber": 20,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "nextProps change to props"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "nextState change to state"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 94,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 26,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "file",
+    "name": "src/components/LifeCycle/ShouldComponentUpdate.jsx",
+    "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ShouldComponentUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      counter: 1,\n    }\n  }\n  /**\n   * performance optimise by updating dom or not based on conditions\n   * @param  {object} nextProps changes to props\n   * @param  {object} nextState changes to state\n   * @return {boolean} if true executes render function else does not do anything\n   */\n  shouldComponentUpdate(nextProps, nextState) {\n    // if true component render else it does not\n    return nextState.counter > 4\n  }\n  render () {\n    return (<div>\n      Counter will only render after counter greater than 4\n      <br />\n        Counter: {this.state.counter}\n      <br />\n      <button\n        onClick={() => {\n          this.setState((prevState) => {\n            return {\n              counter: prevState.counter + 1\n            }\n          })}}>\n      Click to Update counter\n      </button>\n    </div>)\n  }\n}\n\nexport default ShouldComponentUpdate;\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/ShouldComponentUpdate.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 96,
+    "kind": "class",
+    "name": "ShouldComponentUpdate",
+    "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx",
+    "static": true,
+    "longname": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
+    "access": "public",
+    "export": true,
+    "importPath": "ReactIntro/src/components/LifeCycle/ShouldComponentUpdate.jsx",
+    "importStyle": "ShouldComponentUpdate",
+    "description": "Shows ComponentWillMount workflow.",
+    "lineNumber": 8,
+    "interface": false,
+    "extends": [
+      "*"
+    ]
+  },
+  {
+    "__docId__": 97,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 9,
+    "undocument": true
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
+    "static": false,
+    "longname": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate#state",
+    "access": "public",
+    "description": null,
+    "lineNumber": 11,
+    "undocument": true,
+    "type": {
+      "types": [
+        "{\"counter\": number}"
+      ]
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "method",
+    "name": "shouldComponentUpdate",
+    "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate#shouldComponentUpdate",
+    "access": "public",
+    "description": "performance optimise by updating dom or not based on conditions ",
+    "lineNumber": 21,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "nextProps changes to props"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "*"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "{object}",
+        "description": "nextState changes to state"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "if true executes render function else does not do anything"
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate#render",
+    "access": "public",
+    "description": "",
+    "lineNumber": 25,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "file",
+    "name": "src/components/LifeCycle/index.jsx",
+    "content": "import ComponentWillMount from './ComponentWillMount';\nimport ComponentDidMount from './ComponentDidMount';\nimport ComponentWillUpdate from './ComponentWillUpdate';\nimport ComponentWillReceiveProps from './ComponentWillReceiveProps';\nimport ShouldComponentUpdate from './ShouldComponentUpdate';\nimport ComponentDidUpdate from './ComponentDidUpdate';\nexport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n};\n",
+    "static": true,
+    "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/LifeCycle/index.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 102,
     "kind": "file",
     "name": "src/components/index.jsx",
-    "content": "import HelloWorld from './HelloWorld';\nexport default HelloWorld;\n",
+    "content": "import HelloWorld from './HelloWorld';\nimport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n } from './LifeCycle';\nexport default HelloWorld;\n\nexport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillReceiveProps,\n  ComponentWillUpdate,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n};\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/index.jsx",
     "access": "public",
@@ -755,7 +1521,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 59,
+    "__docId__": 103,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",

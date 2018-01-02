@@ -1,1 +1,156 @@
-[]
+[
+  {
+    "name": "ComponentDidUpdate#componentDidUpdate",
+    "filePath": "src/components/LifeCycle/ComponentDidUpdate.jsx",
+    "lines": [
+      {
+        "lineNumber": 23,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 24,
+        "line": "   * called after object updated"
+      },
+      {
+        "lineNumber": 25,
+        "line": "   * used for library intergration"
+      },
+      {
+        "lineNumber": 26,
+        "line": "   * @param  {object} prevProps changed props"
+      },
+      {
+        "lineNumber": 27,
+        "line": "   * @param  {object} prevState changed state"
+      },
+      {
+        "lineNumber": 28,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 29,
+        "line": "  componentDidUpdate(prevProps, prevState) {"
+      }
+    ],
+    "codeParams": [
+      "prevProps",
+      "prevState"
+    ],
+    "docParams": [
+      "{object}",
+      "{object}"
+    ]
+  },
+  {
+    "name": "ComponentWillReceiveProps#componentWillReceiveProps",
+    "filePath": "src/components/LifeCycle/ComponentWillReceiveProps.jsx",
+    "lines": [
+      {
+        "lineNumber": 15,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 16,
+        "line": "   * when props change this function is executed"
+      },
+      {
+        "lineNumber": 17,
+        "line": "   * @param  {object} nextProps changes to props"
+      },
+      {
+        "lineNumber": 18,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 19,
+        "line": "  componentWillReceiveProps(nextProps) {"
+      }
+    ],
+    "codeParams": [
+      "nextProps"
+    ],
+    "docParams": [
+      "{object}"
+    ]
+  },
+  {
+    "name": "ComponentWillUpdate#componentWillUpdate",
+    "filePath": "src/components/LifeCycle/ComponentWillUpdate.jsx",
+    "lines": [
+      {
+        "lineNumber": 14,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 15,
+        "line": " * called after state update and new props before rendering"
+      },
+      {
+        "lineNumber": 16,
+        "line": " * @param  {object} nextProps change to props"
+      },
+      {
+        "lineNumber": 17,
+        "line": " * @param  {object} nextState change to state"
+      },
+      {
+        "lineNumber": 18,
+        "line": " */"
+      },
+      {
+        "lineNumber": 19,
+        "line": "  componentWillUpdate(nextProps, nextState) {"
+      }
+    ],
+    "codeParams": [
+      "nextProps",
+      "nextState"
+    ],
+    "docParams": [
+      "{object}",
+      "{object}"
+    ]
+  },
+  {
+    "name": "ShouldComponentUpdate#shouldComponentUpdate",
+    "filePath": "src/components/LifeCycle/ShouldComponentUpdate.jsx",
+    "lines": [
+      {
+        "lineNumber": 14,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 15,
+        "line": "   * performance optimise by updating dom or not based on conditions"
+      },
+      {
+        "lineNumber": 16,
+        "line": "   * @param  {object} nextProps changes to props"
+      },
+      {
+        "lineNumber": 17,
+        "line": "   * @param  {object} nextState changes to state"
+      },
+      {
+        "lineNumber": 18,
+        "line": "   * @return {boolean} if true executes render function else does not do anything"
+      },
+      {
+        "lineNumber": 19,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 20,
+        "line": "  shouldComponentUpdate(nextProps, nextState) {"
+      }
+    ],
+    "codeParams": [
+      "nextProps",
+      "nextState"
+    ],
+    "docParams": [
+      "{object}",
+      "{object}"
+    ]
+  }
+]

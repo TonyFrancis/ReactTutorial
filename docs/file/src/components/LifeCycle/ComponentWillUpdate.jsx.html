@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | ReactIntro</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/components/LifeCycle/ComponentWillUpdate.jsx | ReactIntro</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -41,15 +41,42 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
-import &apos;./index.css&apos;;
-import App from &apos;./App&apos;;
-import registerServiceWorker from &apos;./registerServiceWorker&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/LifeCycle/ComponentWillUpdate.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component} from &apos;react&apos;;
+import PropTypes from &apos;prop-types&apos;;
 
-ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));
-registerServiceWorker();
+/**
+ * Shows ComponentWillMount workflow.
+ * @extends Component
+ */
+class ComponentWillUpdate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentWillUpdate: &apos;Not Updated&apos;,
+    }
+  }
+/**
+ * called after state update and new props before rendering
+ * @param  {object} nextProps change to props
+ * @param  {object} nextState change to state
+ */
+  componentWillUpdate(nextProps, nextState) {
+    /*
+      No State change is applied here.
+     */
+      console.log(nextState)
+  }
+  render () {
+    return (&lt;div onClick={() =&gt; {
+      this.setState({ componentWillUpdate: &apos;Updated&apos; })}
+    }&gt;
+      {this.state.componentWillUpdate}
+    &lt;/div&gt;)
+  }
+}
+
+export default ComponentWillUpdate;
 </code></pre>
 
 </div>

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | ReactIntro</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/components/LifeCycle/ShouldComponentUpdate.jsx | ReactIntro</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -41,15 +41,51 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
-import &apos;./index.css&apos;;
-import App from &apos;./App&apos;;
-import registerServiceWorker from &apos;./registerServiceWorker&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/LifeCycle/ShouldComponentUpdate.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component} from &apos;react&apos;;
+import PropTypes from &apos;prop-types&apos;;
 
-ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));
-registerServiceWorker();
+/**
+ * Shows ComponentWillMount workflow.
+ * @extends Component
+ */
+class ShouldComponentUpdate extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1,
+    }
+  }
+  /**
+   * performance optimise by updating dom or not based on conditions
+   * @param  {object} nextProps changes to props
+   * @param  {object} nextState changes to state
+   * @return {boolean} if true executes render function else does not do anything
+   */
+  shouldComponentUpdate(nextProps, nextState) {
+    // if true component render else it does not
+    return nextState.counter &gt; 4
+  }
+  render () {
+    return (&lt;div&gt;
+      Counter will only render after counter greater than 4
+      &lt;br /&gt;
+        Counter: {this.state.counter}
+      &lt;br /&gt;
+      &lt;button
+        onClick={() =&gt; {
+          this.setState((prevState) =&gt; {
+            return {
+              counter: prevState.counter + 1
+            }
+          })}}&gt;
+      Click to Update counter
+      &lt;/button&gt;
+    &lt;/div&gt;)
+  }
+}
+
+export default ShouldComponentUpdate;
 </code></pre>
 
 </div>

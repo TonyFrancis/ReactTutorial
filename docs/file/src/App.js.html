@@ -31,13 +31,24 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate.html">ComponentDidUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount.html">ComponentWillMount</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps.html">ComponentWillReceiveProps</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate.html">ComponentWillUpdate</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate.html">ShouldComponentUpdate</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/App.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
-import HelloWorld from &apos;./components&apos;;
+import HelloWorld, {
+  ComponentWillUpdate,
+  ComponentWillReceiveProps,
+  ShouldComponentUpdate,
+  ComponentDidUpdate,
+ } from &apos;./components&apos;;
 import logo from &apos;./logo.svg&apos;;
 import &apos;./App.css&apos;;
 
@@ -49,6 +60,12 @@ import &apos;./App.css&apos;;
  * @extends Component
  */
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      newProps: &quot;Old Props&quot;
+    }
+  }
   /**
    * render function to render html Component to
    *      reactVirtualDom
@@ -56,8 +73,12 @@ class App extends Component {
    */
   render() {
     return (
-      &lt;div className=&quot;App&quot;&gt;
+      &lt;div className=&quot;App&quot; onClick={() =&gt; this.setState({newProps: &quot;New Props&quot; })}&gt;
         &lt;HelloWorld name=&quot;Tony&quot; /&gt;
+        &lt;ComponentWillUpdate /&gt;
+        &lt;ComponentWillReceiveProps componentWillReceiveProps={this.state.newProps} /&gt;
+        &lt;ShouldComponentUpdate /&gt;
+        &lt;ComponentDidUpdate /&gt;
       &lt;/div&gt;
     );
   }

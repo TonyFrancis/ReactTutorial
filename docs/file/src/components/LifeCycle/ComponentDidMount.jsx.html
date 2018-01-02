@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/index.js | ReactIntro</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/components/LifeCycle/ComponentDidMount.jsx | ReactIntro</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -41,15 +41,44 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
-import &apos;./index.css&apos;;
-import App from &apos;./App&apos;;
-import registerServiceWorker from &apos;./registerServiceWorker&apos;;
+<div class="content" data-ice="content"><h1 data-ice="title">src/components/LifeCycle/ComponentDidMount.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;
+import PropTypes from &apos;prop-types&apos;
+/**
+ * Explains componentDidMount and componentWillMount life cycle.
+ * @extends Component
+ */
+class ComponentDidMount extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+  /**
+   * called after object is mounted.
+   * used for library intergration like jquery, charts etc
+   */
+  componentDidMount() {
+    setTimeout( () =&gt; {
+      this.div.innerHTML = &quot;Something Added&quot;
+    }, 3000)
 
-ReactDOM.render(&lt;App /&gt;, document.getElementById(&apos;root&apos;));
-registerServiceWorker();
+  }
+  /**
+   * destructor remove all reference varible called before object is removed from DOM
+   */
+  componentWillUnmount() {
+    this.div = null;
+  }
+  render () {
+    return (
+      &lt;div ref={(div) =&gt; this.div = div}&gt;
+         Nothing here
+      &lt;/div&gt;
+    )
+  }
+}
+
+export default ComponentDidMount;
 </code></pre>
 
 </div>
