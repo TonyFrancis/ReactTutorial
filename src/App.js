@@ -3,6 +3,7 @@ import HelloWorld, {
   ComponentWillUpdate,
   ComponentWillReceiveProps,
   ShouldComponentUpdate,
+  ComponentDidUpdate,
  } from './components';
 import logo from './logo.svg';
 import './App.css';
@@ -33,6 +34,7 @@ class App extends Component {
         <ComponentWillUpdate />
         <ComponentWillReceiveProps componentWillReceiveProps={this.state.newProps} />
         <ShouldComponentUpdate />
+        <ComponentDidUpdate />
       </div>
     );
   }

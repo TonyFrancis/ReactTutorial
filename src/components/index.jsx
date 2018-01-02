@@ -5,6 +5,7 @@ import {
   ComponentWillUpdate,
   ComponentWillReceiveProps,
   ShouldComponentUpdate,
+  ComponentDidUpdate,
  } from './LifeCycle';
 export default HelloWorld;
 
@@ -14,4 +15,5 @@ export {
   ComponentWillReceiveProps,
   ComponentWillUpdate,
   ShouldComponentUpdate,
+  ComponentDidUpdate,
 };
