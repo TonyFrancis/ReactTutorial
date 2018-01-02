@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 395,
+  "end": 437,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 20,
+      "line": 22,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 395,
+    "end": 437,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 20,
+        "line": 22,
         "column": 0
       }
     },
@@ -101,14 +101,14 @@
       {
         "type": "ImportDeclaration",
         "start": 39,
-        "end": 212,
+        "end": 233,
         "loc": {
           "start": {
             "line": 2,
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 10,
             "column": 22
           }
         },
@@ -412,20 +412,70 @@
               },
               "name": "ComponentDidUpdate"
             }
+          },
+          {
+            "type": "ImportSpecifier",
+            "start": 192,
+            "end": 209,
+            "loc": {
+              "start": {
+                "line": 9,
+                "column": 2
+              },
+              "end": {
+                "line": 9,
+                "column": 19
+              }
+            },
+            "imported": {
+              "type": "Identifier",
+              "start": 192,
+              "end": 209,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 2
+                },
+                "end": {
+                  "line": 9,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidCatch"
+              },
+              "name": "ComponentDidCatch"
+            },
+            "importKind": null,
+            "local": {
+              "type": "Identifier",
+              "start": 192,
+              "end": 209,
+              "loc": {
+                "start": {
+                  "line": 9,
+                  "column": 2
+                },
+                "end": {
+                  "line": 9,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidCatch"
+              },
+              "name": "ComponentDidCatch"
+            }
           }
         ],
         "importKind": "value",
         "source": {
           "type": "StringLiteral",
-          "start": 198,
-          "end": 211,
+          "start": 219,
+          "end": 232,
           "loc": {
             "start": {
-              "line": 9,
+              "line": 10,
               "column": 8
             },
             "end": {
-              "line": 9,
+              "line": 10,
               "column": 21
             }
           },
@@ -438,29 +488,29 @@
       },
       {
         "type": "ExportDefaultDeclaration",
-        "start": 213,
-        "end": 239,
+        "start": 234,
+        "end": 260,
         "loc": {
           "start": {
-            "line": 10,
+            "line": 11,
             "column": 0
           },
           "end": {
-            "line": 10,
+            "line": 11,
             "column": 26
           }
         },
         "declaration": {
           "type": "Identifier",
-          "start": 228,
-          "end": 238,
+          "start": 249,
+          "end": 259,
           "loc": {
             "start": {
-              "line": 10,
+              "line": 11,
               "column": 15
             },
             "end": {
-              "line": 10,
+              "line": 11,
               "column": 25
             },
             "identifierName": "HelloWorld"
@@ -472,15 +522,15 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 241,
-        "end": 394,
+        "start": 262,
+        "end": 436,
         "loc": {
           "start": {
-            "line": 12,
+            "line": 13,
             "column": 0
           },
           "end": {
-            "line": 19,
+            "line": 21,
             "column": 2
           }
         },
@@ -488,56 +538,7 @@
         "specifiers": [
           {
             "type": "ExportSpecifier",
-            "start": 252,
-            "end": 270,
-            "loc": {
-              "start": {
-                "line": 13,
-                "column": 2
-              },
-              "end": {
-                "line": 13,
-                "column": 20
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 252,
-              "end": 270,
-              "loc": {
-                "start": {
-                  "line": 13,
-                  "column": 2
-                },
-                "end": {
-                  "line": 13,
-                  "column": 20
-                },
-                "identifierName": "ComponentWillMount"
-              },
-              "name": "ComponentWillMount"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 252,
-              "end": 270,
-              "loc": {
-                "start": {
-                  "line": 13,
-                  "column": 2
-                },
-                "end": {
-                  "line": 13,
-                  "column": 20
-                },
-                "identifierName": "ComponentWillMount"
-              },
-              "name": "ComponentWillMount"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 274,
+            "start": 273,
             "end": 291,
             "loc": {
               "start": {
@@ -546,209 +547,209 @@
               },
               "end": {
                 "line": 14,
-                "column": 19
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 274,
-              "end": 291,
-              "loc": {
-                "start": {
-                  "line": 14,
-                  "column": 2
-                },
-                "end": {
-                  "line": 14,
-                  "column": 19
-                },
-                "identifierName": "ComponentDidMount"
-              },
-              "name": "ComponentDidMount"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 274,
-              "end": 291,
-              "loc": {
-                "start": {
-                  "line": 14,
-                  "column": 2
-                },
-                "end": {
-                  "line": 14,
-                  "column": 19
-                },
-                "identifierName": "ComponentDidMount"
-              },
-              "name": "ComponentDidMount"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 295,
-            "end": 320,
-            "loc": {
-              "start": {
-                "line": 15,
-                "column": 2
-              },
-              "end": {
-                "line": 15,
-                "column": 27
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 295,
-              "end": 320,
-              "loc": {
-                "start": {
-                  "line": 15,
-                  "column": 2
-                },
-                "end": {
-                  "line": 15,
-                  "column": 27
-                },
-                "identifierName": "ComponentWillReceiveProps"
-              },
-              "name": "ComponentWillReceiveProps"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 295,
-              "end": 320,
-              "loc": {
-                "start": {
-                  "line": 15,
-                  "column": 2
-                },
-                "end": {
-                  "line": 15,
-                  "column": 27
-                },
-                "identifierName": "ComponentWillReceiveProps"
-              },
-              "name": "ComponentWillReceiveProps"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 324,
-            "end": 343,
-            "loc": {
-              "start": {
-                "line": 16,
-                "column": 2
-              },
-              "end": {
-                "line": 16,
-                "column": 21
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 324,
-              "end": 343,
-              "loc": {
-                "start": {
-                  "line": 16,
-                  "column": 2
-                },
-                "end": {
-                  "line": 16,
-                  "column": 21
-                },
-                "identifierName": "ComponentWillUpdate"
-              },
-              "name": "ComponentWillUpdate"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 324,
-              "end": 343,
-              "loc": {
-                "start": {
-                  "line": 16,
-                  "column": 2
-                },
-                "end": {
-                  "line": 16,
-                  "column": 21
-                },
-                "identifierName": "ComponentWillUpdate"
-              },
-              "name": "ComponentWillUpdate"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 347,
-            "end": 368,
-            "loc": {
-              "start": {
-                "line": 17,
-                "column": 2
-              },
-              "end": {
-                "line": 17,
-                "column": 23
-              }
-            },
-            "local": {
-              "type": "Identifier",
-              "start": 347,
-              "end": 368,
-              "loc": {
-                "start": {
-                  "line": 17,
-                  "column": 2
-                },
-                "end": {
-                  "line": 17,
-                  "column": 23
-                },
-                "identifierName": "ShouldComponentUpdate"
-              },
-              "name": "ShouldComponentUpdate"
-            },
-            "exported": {
-              "type": "Identifier",
-              "start": 347,
-              "end": 368,
-              "loc": {
-                "start": {
-                  "line": 17,
-                  "column": 2
-                },
-                "end": {
-                  "line": 17,
-                  "column": 23
-                },
-                "identifierName": "ShouldComponentUpdate"
-              },
-              "name": "ShouldComponentUpdate"
-            }
-          },
-          {
-            "type": "ExportSpecifier",
-            "start": 372,
-            "end": 390,
-            "loc": {
-              "start": {
-                "line": 18,
-                "column": 2
-              },
-              "end": {
-                "line": 18,
                 "column": 20
               }
             },
             "local": {
               "type": "Identifier",
-              "start": 372,
-              "end": 390,
+              "start": 273,
+              "end": 291,
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 14,
+                  "column": 20
+                },
+                "identifierName": "ComponentWillMount"
+              },
+              "name": "ComponentWillMount"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 273,
+              "end": 291,
+              "loc": {
+                "start": {
+                  "line": 14,
+                  "column": 2
+                },
+                "end": {
+                  "line": 14,
+                  "column": 20
+                },
+                "identifierName": "ComponentWillMount"
+              },
+              "name": "ComponentWillMount"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 295,
+            "end": 312,
+            "loc": {
+              "start": {
+                "line": 15,
+                "column": 2
+              },
+              "end": {
+                "line": 15,
+                "column": 19
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 295,
+              "end": 312,
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 2
+                },
+                "end": {
+                  "line": 15,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidMount"
+              },
+              "name": "ComponentDidMount"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 295,
+              "end": 312,
+              "loc": {
+                "start": {
+                  "line": 15,
+                  "column": 2
+                },
+                "end": {
+                  "line": 15,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidMount"
+              },
+              "name": "ComponentDidMount"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 316,
+            "end": 341,
+            "loc": {
+              "start": {
+                "line": 16,
+                "column": 2
+              },
+              "end": {
+                "line": 16,
+                "column": 27
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 316,
+              "end": 341,
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 27
+                },
+                "identifierName": "ComponentWillReceiveProps"
+              },
+              "name": "ComponentWillReceiveProps"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 316,
+              "end": 341,
+              "loc": {
+                "start": {
+                  "line": 16,
+                  "column": 2
+                },
+                "end": {
+                  "line": 16,
+                  "column": 27
+                },
+                "identifierName": "ComponentWillReceiveProps"
+              },
+              "name": "ComponentWillReceiveProps"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 345,
+            "end": 364,
+            "loc": {
+              "start": {
+                "line": 17,
+                "column": 2
+              },
+              "end": {
+                "line": 17,
+                "column": 21
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 345,
+              "end": 364,
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 2
+                },
+                "end": {
+                  "line": 17,
+                  "column": 21
+                },
+                "identifierName": "ComponentWillUpdate"
+              },
+              "name": "ComponentWillUpdate"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 345,
+              "end": 364,
+              "loc": {
+                "start": {
+                  "line": 17,
+                  "column": 2
+                },
+                "end": {
+                  "line": 17,
+                  "column": 21
+                },
+                "identifierName": "ComponentWillUpdate"
+              },
+              "name": "ComponentWillUpdate"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 368,
+            "end": 389,
+            "loc": {
+              "start": {
+                "line": 18,
+                "column": 2
+              },
+              "end": {
+                "line": 18,
+                "column": 23
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 368,
+              "end": 389,
               "loc": {
                 "start": {
                   "line": 18,
@@ -756,6 +757,55 @@
                 },
                 "end": {
                   "line": 18,
+                  "column": 23
+                },
+                "identifierName": "ShouldComponentUpdate"
+              },
+              "name": "ShouldComponentUpdate"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 368,
+              "end": 389,
+              "loc": {
+                "start": {
+                  "line": 18,
+                  "column": 2
+                },
+                "end": {
+                  "line": 18,
+                  "column": 23
+                },
+                "identifierName": "ShouldComponentUpdate"
+              },
+              "name": "ShouldComponentUpdate"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 393,
+            "end": 411,
+            "loc": {
+              "start": {
+                "line": 19,
+                "column": 2
+              },
+              "end": {
+                "line": 19,
+                "column": 20
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 393,
+              "end": 411,
+              "loc": {
+                "start": {
+                  "line": 19,
+                  "column": 2
+                },
+                "end": {
+                  "line": 19,
                   "column": 20
                 },
                 "identifierName": "ComponentDidUpdate"
@@ -764,20 +814,69 @@
             },
             "exported": {
               "type": "Identifier",
-              "start": 372,
-              "end": 390,
+              "start": 393,
+              "end": 411,
               "loc": {
                 "start": {
-                  "line": 18,
+                  "line": 19,
                   "column": 2
                 },
                 "end": {
-                  "line": 18,
+                  "line": 19,
                   "column": 20
                 },
                 "identifierName": "ComponentDidUpdate"
               },
               "name": "ComponentDidUpdate"
+            }
+          },
+          {
+            "type": "ExportSpecifier",
+            "start": 415,
+            "end": 432,
+            "loc": {
+              "start": {
+                "line": 20,
+                "column": 2
+              },
+              "end": {
+                "line": 20,
+                "column": 19
+              }
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 415,
+              "end": 432,
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 2
+                },
+                "end": {
+                  "line": 20,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidCatch"
+              },
+              "name": "ComponentDidCatch"
+            },
+            "exported": {
+              "type": "Identifier",
+              "start": 415,
+              "end": 432,
+              "loc": {
+                "start": {
+                  "line": 20,
+                  "column": 2
+                },
+                "end": {
+                  "line": 20,
+                  "column": 19
+                },
+                "identifierName": "ComponentDidCatch"
+              },
+              "name": "ComponentDidCatch"
             }
           }
         ],
@@ -1289,6 +1388,58 @@
     },
     {
       "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ComponentDidCatch",
+      "start": 192,
+      "end": 209,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 2
+        },
+        "end": {
+          "line": 9,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 209,
+      "end": 210,
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 19
+        },
+        "end": {
+          "line": 9,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
         "label": "}",
         "beforeExpr": false,
         "startsExpr": false,
@@ -1299,15 +1450,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 191,
-      "end": 192,
+      "start": 212,
+      "end": 213,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 1
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 2
         }
       }
@@ -1325,15 +1476,15 @@
         "binop": null
       },
       "value": "from",
-      "start": 193,
-      "end": 197,
+      "start": 214,
+      "end": 218,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 3
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 7
         }
       }
@@ -1352,15 +1503,15 @@
         "updateContext": null
       },
       "value": "./LifeCycle",
-      "start": 198,
-      "end": 211,
+      "start": 219,
+      "end": 232,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 8
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 21
         }
       }
@@ -1378,15 +1529,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 211,
-      "end": 212,
+      "start": 232,
+      "end": 233,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 10,
           "column": 21
         },
         "end": {
-          "line": 9,
+          "line": 10,
           "column": 22
         }
       }
@@ -1406,15 +1557,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 213,
-      "end": 219,
+      "start": 234,
+      "end": 240,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 0
         },
         "end": {
-          "line": 10,
+          "line": 11,
           "column": 6
         }
       }
@@ -1434,15 +1585,15 @@
         "updateContext": null
       },
       "value": "default",
-      "start": 220,
-      "end": 227,
+      "start": 241,
+      "end": 248,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 7
         },
         "end": {
-          "line": 10,
+          "line": 11,
           "column": 14
         }
       }
@@ -1460,15 +1611,15 @@
         "binop": null
       },
       "value": "HelloWorld",
-      "start": 228,
-      "end": 238,
+      "start": 249,
+      "end": 259,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 15
         },
         "end": {
-          "line": 10,
+          "line": 11,
           "column": 25
         }
       }
@@ -1486,15 +1637,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 238,
-      "end": 239,
+      "start": 259,
+      "end": 260,
       "loc": {
         "start": {
-          "line": 10,
+          "line": 11,
           "column": 25
         },
         "end": {
-          "line": 10,
+          "line": 11,
           "column": 26
         }
       }
@@ -1514,15 +1665,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 241,
-      "end": 247,
+      "start": 262,
+      "end": 268,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 13,
           "column": 0
         },
         "end": {
-          "line": 12,
+          "line": 13,
           "column": 6
         }
       }
@@ -1539,15 +1690,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 248,
-      "end": 249,
+      "start": 269,
+      "end": 270,
       "loc": {
         "start": {
-          "line": 12,
+          "line": 13,
           "column": 7
         },
         "end": {
-          "line": 12,
+          "line": 13,
           "column": 8
         }
       }
@@ -1565,59 +1716,7 @@
         "binop": null
       },
       "value": "ComponentWillMount",
-      "start": 252,
-      "end": 270,
-      "loc": {
-        "start": {
-          "line": 13,
-          "column": 2
-        },
-        "end": {
-          "line": 13,
-          "column": 20
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 270,
-      "end": 271,
-      "loc": {
-        "start": {
-          "line": 13,
-          "column": 20
-        },
-        "end": {
-          "line": 13,
-          "column": 21
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "ComponentDidMount",
-      "start": 274,
+      "start": 273,
       "end": 291,
       "loc": {
         "start": {
@@ -1626,7 +1725,7 @@
         },
         "end": {
           "line": 14,
-          "column": 19
+          "column": 20
         }
       }
     },
@@ -1648,10 +1747,62 @@
       "loc": {
         "start": {
           "line": 14,
-          "column": 19
+          "column": 20
         },
         "end": {
           "line": 14,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ComponentDidMount",
+      "start": 295,
+      "end": 312,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 2
+        },
+        "end": {
+          "line": 15,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 312,
+      "end": 313,
+      "loc": {
+        "start": {
+          "line": 15,
+          "column": 19
+        },
+        "end": {
+          "line": 15,
           "column": 20
         }
       }
@@ -1669,15 +1820,15 @@
         "binop": null
       },
       "value": "ComponentWillReceiveProps",
-      "start": 295,
-      "end": 320,
+      "start": 316,
+      "end": 341,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 2
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 27
         }
       }
@@ -1695,15 +1846,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 320,
-      "end": 321,
+      "start": 341,
+      "end": 342,
       "loc": {
         "start": {
-          "line": 15,
+          "line": 16,
           "column": 27
         },
         "end": {
-          "line": 15,
+          "line": 16,
           "column": 28
         }
       }
@@ -1721,15 +1872,15 @@
         "binop": null
       },
       "value": "ComponentWillUpdate",
-      "start": 324,
-      "end": 343,
+      "start": 345,
+      "end": 364,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 2
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 21
         }
       }
@@ -1747,15 +1898,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 343,
-      "end": 344,
+      "start": 364,
+      "end": 365,
       "loc": {
         "start": {
-          "line": 16,
+          "line": 17,
           "column": 21
         },
         "end": {
-          "line": 16,
+          "line": 17,
           "column": 22
         }
       }
@@ -1773,15 +1924,15 @@
         "binop": null
       },
       "value": "ShouldComponentUpdate",
-      "start": 347,
-      "end": 368,
+      "start": 368,
+      "end": 389,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 2
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 23
         }
       }
@@ -1799,15 +1950,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 368,
-      "end": 369,
+      "start": 389,
+      "end": 390,
       "loc": {
         "start": {
-          "line": 17,
+          "line": 18,
           "column": 23
         },
         "end": {
-          "line": 17,
+          "line": 18,
           "column": 24
         }
       }
@@ -1825,15 +1976,15 @@
         "binop": null
       },
       "value": "ComponentDidUpdate",
-      "start": 372,
-      "end": 390,
+      "start": 393,
+      "end": 411,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 2
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 20
         }
       }
@@ -1851,16 +2002,68 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 390,
-      "end": 391,
+      "start": 411,
+      "end": 412,
       "loc": {
         "start": {
-          "line": 18,
+          "line": 19,
           "column": 20
         },
         "end": {
-          "line": 18,
+          "line": 19,
           "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "ComponentDidCatch",
+      "start": 415,
+      "end": 432,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 2
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 432,
+      "end": 433,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 19
+        },
+        "end": {
+          "line": 20,
+          "column": 20
         }
       }
     },
@@ -1876,15 +2079,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 392,
-      "end": 393,
+      "start": 434,
+      "end": 435,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 21,
           "column": 0
         },
         "end": {
-          "line": 19,
+          "line": 21,
           "column": 1
         }
       }
@@ -1902,15 +2105,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 393,
-      "end": 394,
+      "start": 435,
+      "end": 436,
       "loc": {
         "start": {
-          "line": 19,
+          "line": 21,
           "column": 1
         },
         "end": {
-          "line": 19,
+          "line": 21,
           "column": 2
         }
       }
@@ -1928,15 +2131,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 395,
-      "end": 395,
+      "start": 437,
+      "end": 437,
       "loc": {
         "start": {
-          "line": 20,
+          "line": 22,
           "column": 0
         },
         "end": {
-          "line": 20,
+          "line": 22,
           "column": 0
         }
       }

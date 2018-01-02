@@ -1,20 +1,31 @@
 {
-  "coverage": "63.63%",
-  "expectCount": 44,
-  "actualCount": 28,
+  "coverage": "61.11%",
+  "expectCount": 54,
+  "actualCount": 33,
   "files": {
     "src/App.js": {
-      "expectCount": 4,
-      "actualCount": 2,
+      "expectCount": 9,
+      "actualCount": 5,
       "undocumentLines": [
+        17,
         19,
-        21
+        42,
+        44
       ]
     },
     "src/components/HelloWorld.jsx": {
       "expectCount": 5,
       "actualCount": 5,
       "undocumentLines": []
+    },
+    "src/components/LifeCycle/ComponentDidCatch.jsx": {
+      "expectCount": 5,
+      "actualCount": 2,
+      "undocumentLines": [
+        4,
+        5,
+        7
+      ]
     },
     "src/components/LifeCycle/ComponentDidMount.jsx": {
       "expectCount": 7,

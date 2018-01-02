@@ -31,7 +31,8 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
-<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html">ComponentDidCatch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate.html">ComponentDidUpdate</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount.html">ComponentWillMount</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps.html">ComponentWillReceiveProps</a></span></span></li>
@@ -48,13 +49,36 @@ import HelloWorld, {
   ComponentWillReceiveProps,
   ShouldComponentUpdate,
   ComponentDidUpdate,
+  ComponentDidCatch,
  } from &apos;./components&apos;;
 import logo from &apos;./logo.svg&apos;;
 import &apos;./App.css&apos;;
 
+/**
+ * BuggyCounter will throw error when counter reach 5
+ * @extends React
+ */
+class BuggyCounter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { counter: 0 };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
+  handleClick() {
+    this.setState(({counter}) =&gt; ({
+      counter: counter + 1
+    }));
+  }
 
-
+  render() {
+    if (this.state.counter === 5) {
+      // Simulate a JS error
+      throw new Error(&apos;I crashed!&apos;);
+    }
+    return &lt;h1 onClick={this.handleClick}&gt;{this.state.counter}&lt;/h1&gt;;
+  }
+}
 /**
  * App main class diplays Hello World
  * @extends Component
@@ -63,7 +87,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      newProps: &quot;Old Props&quot;
+      counter: 1
     }
   }
   /**
@@ -73,13 +97,9 @@ class App extends Component {
    */
   render() {
     return (
-      &lt;div className=&quot;App&quot; onClick={() =&gt; this.setState({newProps: &quot;New Props&quot; })}&gt;
-        &lt;HelloWorld name=&quot;Tony&quot; /&gt;
-        &lt;ComponentWillUpdate /&gt;
-        &lt;ComponentWillReceiveProps componentWillReceiveProps={this.state.newProps} /&gt;
-        &lt;ShouldComponentUpdate /&gt;
-        &lt;ComponentDidUpdate /&gt;
-      &lt;/div&gt;
+      &lt;ComponentDidCatch&gt;
+        &lt;BuggyCounter /&gt;
+      &lt;/ComponentDidCatch&gt;
     );
   }
 }

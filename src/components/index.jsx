@@ -6,6 +6,7 @@ import {
   ComponentWillReceiveProps,
   ShouldComponentUpdate,
   ComponentDidUpdate,
+  ComponentDidCatch,
  } from './LifeCycle';
 export default HelloWorld;
 
@@ -16,4 +17,5 @@ export {
   ComponentWillUpdate,
   ShouldComponentUpdate,
   ComponentDidUpdate,
+  ComponentDidCatch,
 };

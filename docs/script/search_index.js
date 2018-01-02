@@ -6,6 +6,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "reactintro/src/components/lifecycle/componentdidcatch.jsx~componentdidcatch",
+    "class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html",
+    "<span>ComponentDidCatch</span> <span class=\"search-result-import-path\">ReactIntro/src/components/LifeCycle/ComponentDidCatch.jsx</span>",
+    "class"
+  ],
+  [
     "reactintro/src/components/lifecycle/componentdidmount.jsx~componentdidmount",
     "class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html",
     "<span>ComponentDidMount</span> <span class=\"search-result-import-path\">ReactIntro/src/components/LifeCycle/ComponentDidMount.jsx</span>",
@@ -381,6 +387,36 @@ window.esdocSearchIndex = [
     "src/components/helloworld.jsx~helloworld#state",
     "class/src/components/HelloWorld.jsx~HelloWorld.html#instance-member-state",
     "src/components/HelloWorld.jsx~HelloWorld#state",
+    "member"
+  ],
+  [
+    "src/components/lifecycle/componentdidcatch.jsx",
+    "file/src/components/LifeCycle/ComponentDidCatch.jsx.html",
+    "src/components/LifeCycle/ComponentDidCatch.jsx",
+    "file"
+  ],
+  [
+    "src/components/lifecycle/componentdidcatch.jsx~componentdidcatch#componentdidcatch",
+    "class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-method-componentDidCatch",
+    "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch#componentDidCatch",
+    "method"
+  ],
+  [
+    "src/components/lifecycle/componentdidcatch.jsx~componentdidcatch#constructor",
+    "class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-constructor-constructor",
+    "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch#constructor",
+    "method"
+  ],
+  [
+    "src/components/lifecycle/componentdidcatch.jsx~componentdidcatch#render",
+    "class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-method-render",
+    "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch#render",
+    "method"
+  ],
+  [
+    "src/components/lifecycle/componentdidcatch.jsx~componentdidcatch#state",
+    "class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-member-state",
+    "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch#state",
     "member"
   ],
   [

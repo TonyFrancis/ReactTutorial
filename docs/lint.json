@@ -1,5 +1,43 @@
 [
   {
+    "name": "ComponentDidCatch#componentDidCatch",
+    "filePath": "src/components/LifeCycle/ComponentDidCatch.jsx",
+    "lines": [
+      {
+        "lineNumber": 8,
+        "line": "  /**"
+      },
+      {
+        "lineNumber": 9,
+        "line": "   * default error catching bounder for error propagation."
+      },
+      {
+        "lineNumber": 10,
+        "line": "   * @param  {Error} error error object"
+      },
+      {
+        "lineNumber": 11,
+        "line": "   * @param  {string} info  desprication"
+      },
+      {
+        "lineNumber": 12,
+        "line": "   */"
+      },
+      {
+        "lineNumber": 13,
+        "line": "  componentDidCatch(error, info) {"
+      }
+    ],
+    "codeParams": [
+      "error",
+      "info"
+    ],
+    "docParams": [
+      "{Error}",
+      "{string}"
+    ]
+  },
+  {
     "name": "ComponentDidUpdate#componentDidUpdate",
     "filePath": "src/components/LifeCycle/ComponentDidUpdate.jsx",
     "lines": [

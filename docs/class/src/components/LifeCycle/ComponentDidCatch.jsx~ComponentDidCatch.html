@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">App | ReactIntro</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">ComponentDidCatch | ReactIntro</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -43,23 +43,23 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import App from &apos;<span><a href="file/src/App.js.html#lineNumber41">ReactIntro/src/App.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import ComponentDidCatch from &apos;<span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber4">ReactIntro/src/components/LifeCycle/ComponentDidCatch.jsx</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/App.js.html#lineNumber41">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber4">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
-  <h1 data-ice="name">App</h1>
+  <h1 data-ice="name">ComponentDidCatch</h1>
 
   
 
   
   
-  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>*</span> &#x2192; App</div></div>
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>react~Component</span> &#x2192; ComponentDidCatch</div></div>
   
   
   
@@ -69,8 +69,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>App main class diplays Hello World</p>
-</div>
+  
   
 
   
@@ -102,7 +101,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/App.js~App.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
+          <span class="code" data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-constructor-constructor">constructor</a></span></span><span class="code" data-ice="signature">()</span>
         </p>
       </div>
       <div>
@@ -137,7 +136,7 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/App.js~App.html#instance-member-state">state</a></span></span><span class="code" data-ice="signature">: {&quot;counter&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>}</span>
+          <span class="code" data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-member-state">state</a></span></span><span class="code" data-ice="signature">: {&quot;hasError&quot;: <span>*</span>}</span>
         </p>
       </div>
       <div>
@@ -172,15 +171,42 @@
           
           
           
-          <span class="code" data-ice="name"><span><a href="class/src/App.js~App.html#instance-method-render">render</a></span></span><span class="code" data-ice="signature">(): <span>[ReactElement(div)]</span></span>
+          <span class="code" data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-method-componentDidCatch">componentDidCatch</a></span></span><span class="code" data-ice="signature">({Error}: <span>*</span>, {string}: <span>*</span>)</span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>render function to render html Component to
-     reactVirtualDom </p>
+        <div data-ice="description"><p>default error catching bounder for error propagation.</p>
 </div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+          
+          
+          
+          <span class="code" data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html#instance-method-render">render</a></span></span><span class="code" data-ice="signature">(): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        
       </div>
     </td>
     <td>
@@ -210,7 +236,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/App.js.html#lineNumber42">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber5">source</a></span></span>
     </span>
   </h3>
 
@@ -252,11 +278,11 @@
     
     
     
-    <span class="code" data-ice="name">state</span><span class="code" data-ice="signature">: {&quot;counter&quot;: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>}</span>
+    <span class="code" data-ice="name">state</span><span class="code" data-ice="signature">: {&quot;hasError&quot;: <span>*</span>}</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/App.js.html#lineNumber44">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber7">source</a></span></span>
     </span>
   </h3>
 
@@ -291,6 +317,74 @@
 <div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
 
 <div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-componentDidCatch">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    
+    <span class="code" data-ice="name">componentDidCatch</span><span class="code" data-ice="signature">({Error}: <span>*</span>, {string}: <span>*</span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber14">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>default error catching bounder for error propagation. </p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">{Error}</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>error error object</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" class="code" data-depth="0">{string}</td>
+      <td data-ice="type" class="code"><span>*</span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>info  desprication</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
   <h3 data-ice="anchor" id="instance-method-render">
     <span class="access" data-ice="access">public</span>
     
@@ -298,20 +392,18 @@
     
     
     
-    <span class="code" data-ice="name">render</span><span class="code" data-ice="signature">(): <span>[ReactElement(div)]</span></span>
+    <span class="code" data-ice="name">render</span><span class="code" data-ice="signature">(): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/App.js.html#lineNumber53">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/components/LifeCycle/ComponentDidCatch.jsx.html#lineNumber23">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>render function to render html Component to
-     reactVirtualDom </p>
-</div>
+  
 
   
 
@@ -323,9 +415,8 @@
     <table>
       <tbody>
         <tr>
-          <td class="return-type code" data-ice="returnType"><span>[ReactElement(div)]</span></td>
-          <td class="return-desc" data-ice="returnDescription"><p>[Div element]</p>
-</td>
+          <td class="return-type code" data-ice="returnType"><span>*</span></td>
+          
         </tr>
       </tbody>
     </table>

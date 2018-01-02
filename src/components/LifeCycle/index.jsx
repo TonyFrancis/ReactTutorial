@@ -4,6 +4,8 @@ import ComponentWillUpdate from './ComponentWillUpdate';
 import ComponentWillReceiveProps from './ComponentWillReceiveProps';
 import ShouldComponentUpdate from './ShouldComponentUpdate';
 import ComponentDidUpdate from './ComponentDidUpdate';
+import ComponentDidCatch from './ComponentDidCatch';
+
 export {
   ComponentWillMount,
   ComponentDidMount,
@@ -11,4 +13,5 @@ export {
   ComponentWillReceiveProps,
   ShouldComponentUpdate,
   ComponentDidUpdate,
+  ComponentDidCatch,
 };
