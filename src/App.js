@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HelloWorld from './components';
+import HelloWorld, { ComponentWillMount, ComponentDidMount } from './components';
 import logo from './logo.svg';
 import './App.css';
 
@@ -20,6 +20,8 @@ class App extends Component {
     return (
       <div className="App">
         <HelloWorld name="Tony" />
+        <ComponentWillMount />
+        <ComponentDidMount />
       </div>
     );
   }
