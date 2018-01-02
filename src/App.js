@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
-import HelloWorld, { ComponentWillMount, ComponentDidMount } from './components';
+import HelloWorld, {
+  ComponentWillUpdate,
+  ComponentWillReceiveProps,
+  ShouldComponentUpdate,
+ } from './components';
 import logo from './logo.svg';
 import './App.css';
 
@@ -11,6 +15,12 @@ import './App.css';
  * @extends Component
  */
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      newProps: "Old Props"
+    }
+  }
   /**
    * render function to render html Component to
    *      reactVirtualDom
@@ -18,10 +28,11 @@ class App extends Component {
    */
   render() {
     return (
-      <div className="App">
+      <div className="App" onClick={() => this.setState({newProps: "New Props" })}>
         <HelloWorld name="Tony" />
-        <ComponentWillMount />
-        <ComponentDidMount />
+        <ComponentWillUpdate />
+        <ComponentWillReceiveProps componentWillReceiveProps={this.state.newProps} />
+        <ShouldComponentUpdate />
       </div>
     );
   }
