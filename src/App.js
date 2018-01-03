@@ -1,39 +1,8 @@
 import React, { Component } from 'react';
-import HelloWorld, {
-  ComponentWillUpdate,
-  ComponentWillReceiveProps,
-  ShouldComponentUpdate,
-  ComponentDidUpdate,
-  ComponentDidCatch,
- } from './components';
+import HelloWorld from './components/HelloWorld';
 import logo from './logo.svg';
 import './App.css';
 
-/**
- * BuggyCounter will throw error when counter reach 5
- * @extends React
- */
-class BuggyCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState(({counter}) => ({
-      counter: counter + 1
-    }));
-  }
-
-  render() {
-    if (this.state.counter === 5) {
-      // Simulate a JS error
-      throw new Error('I crashed!');
-    }
-    return <h1 onClick={this.handleClick}>{this.state.counter}</h1>;
-  }
-}
 /**
  * App main class diplays Hello World
  * @extends Component
@@ -53,8 +22,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        Create Hello World Component which will take input "your name"
-        and display "Hello ${name}" 10 times
+        <HelloWorld />
       </div>
     );
   }

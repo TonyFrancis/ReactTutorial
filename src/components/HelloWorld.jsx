@@ -39,15 +39,19 @@ class HelloWorld extends Component {
    * @return {ReactElement(div)} div component to be displayed
    */
   render() {
+    const names = [];
+    for (let i = 0; i< 10 ; i++) {
+      names.push(
+        <h4>hello {this.state.name}</h4>
+      );
+    }
     return (
       <div>
-        <p style={styles.hello}>
-          hello {this.state.name}
-        </p>
         <input
           value={this.state.name}
           onChange={ e => this.setState({ name: e.target.value})}
           />
+        {names}
       </div>
     )
   }
