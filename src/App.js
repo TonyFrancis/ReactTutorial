@@ -52,9 +52,10 @@ class App extends Component {
    */
   render() {
     return (
-      <ComponentDidCatch>
-        <BuggyCounter />
-      </ComponentDidCatch>
+      <div>
+        Create Hello World Component which will take input "your name"
+        and display "Hello ${name}" 10 times
+      </div>
     );
   }
 }
