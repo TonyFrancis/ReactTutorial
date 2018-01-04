@@ -1,9 +1,9 @@
 window.esdocSearchIndex = [
   [
     "reactintro/src/app.js~app",
-    "class/src/App.js~App.html",
+    "function/index.html#static-function-App",
     "<span>App</span> <span class=\"search-result-import-path\">ReactIntro/src/App.js</span>",
-    "class"
+    "function"
   ],
   [
     "reactintro/src/components/lifecycle/componentdidcatch.jsx~componentdidcatch",
@@ -340,24 +340,6 @@ window.esdocSearchIndex = [
     "file/src/App.js.html",
     "src/App.js",
     "file"
-  ],
-  [
-    "src/app.js~app#constructor",
-    "class/src/App.js~App.html#instance-constructor-constructor",
-    "src/App.js~App#constructor",
-    "method"
-  ],
-  [
-    "src/app.js~app#render",
-    "class/src/App.js~App.html#instance-method-render",
-    "src/App.js~App#render",
-    "method"
-  ],
-  [
-    "src/app.js~app#state",
-    "class/src/App.js~App.html#instance-member-state",
-    "src/App.js~App#state",
-    "member"
   ],
   [
     "src/app.test.js",

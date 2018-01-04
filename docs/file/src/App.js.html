@@ -29,7 +29,7 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html">ComponentDidCatch</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
@@ -44,66 +44,96 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/App.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React, { Component } from &apos;react&apos;;
-import HelloWorld, {
-  ComponentWillUpdate,
-  ComponentWillReceiveProps,
-  ShouldComponentUpdate,
-  ComponentDidUpdate,
-  ComponentDidCatch,
- } from &apos;./components&apos;;
-import logo from &apos;./logo.svg&apos;;
-import &apos;./App.css&apos;;
+import HelloWorld from &apos;./components/HelloWorld&apos;;
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from &apos;react-router-dom&apos;
+/**
+ * Home Page Component
+ */
+const Home = () =&gt; (
+  &lt;div&gt;
+    &lt;h2&gt;Home&lt;/h2&gt;
+  &lt;/div&gt;
+)
+/**
+ * Routing to react-router guide
+ */
+const Routing = () =&gt; (
+  &lt;div&gt;
+    &lt;h2&gt;
+      &lt;Link to=&quot;https://reacttraining.com/react-router/web/guides/quick-start&quot; target=&quot;_blank&quot;&gt;
+        Quick Start Guide to Routing
+      &lt;/Link&gt;
+    &lt;/h2&gt;
+  &lt;/div&gt;
+)
 
 /**
- * BuggyCounter will throw error when counter reach 5
- * @extends React
+ * Topic page
+ * @param {[object]} match url matching. eg rendering , components
  */
-class BuggyCounter extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { counter: 0 };
-    this.handleClick = this.handleClick.bind(this);
-  }
+const Topic = ({ match }) =&gt; (
+  &lt;div&gt;
+    &lt;h3&gt;{match.params.topicId}&lt;/h3&gt;
+  &lt;/div&gt;
+)
 
-  handleClick() {
-    this.setState(({counter}) =&gt; ({
-      counter: counter + 1
-    }));
-  }
-
-  render() {
-    if (this.state.counter === 5) {
-      // Simulate a JS error
-      throw new Error(&apos;I crashed!&apos;);
-    }
-    return &lt;h1 onClick={this.handleClick}&gt;{this.state.counter}&lt;/h1&gt;;
-  }
-}
 /**
- * App main class diplays Hello World
- * @extends Component
+ * Topics page component with 3 sub topic redirect
+ * @param {[object]} match contains url contains
  */
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      counter: 1
-    }
-  }
-  /**
-   * render function to render html Component to
-   *      reactVirtualDom
-   * @return {[ReactElement(div)]} [Div element]
-   */
-  render() {
-    return (
-      &lt;ComponentDidCatch&gt;
-        &lt;BuggyCounter /&gt;
-      &lt;/ComponentDidCatch&gt;
-    );
-  }
-}
+const Topics = ({ match }) =&gt; (
+  &lt;div&gt;
+    &lt;h2&gt;Topics&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;Link to={`${match.url}/rendering`}&gt;
+          Rendering with React
+        &lt;/Link&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;Link to={`${match.url}/components`}&gt;
+          Components
+        &lt;/Link&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+        &lt;Link to={`${match.url}/props-v-state`}&gt;
+          Props v. State
+        &lt;/Link&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    {/*
+      secondary routes to each topic
+    */}
+    &lt;Route path={`${match.url}/:topicId`} component={Topic}/&gt;
+    &lt;Route exact path={match.url} render={() =&gt; (
+      &lt;h3&gt;Please select a topic.&lt;/h3&gt;
+    )}/&gt;
+  &lt;/div&gt;
+)
+/**
+ * App contains Base Route for the website.
+ */
+const App = () =&gt; (
+  &lt;Router&gt;
+    &lt;div&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;Link to=&quot;/&quot;&gt;Home&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/routing&quot;&gt;Routing&lt;/Link&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;Link to=&quot;/topics&quot;&gt;Topics&lt;/Link&gt;&lt;/li&gt;
+      &lt;/ul&gt;
 
+      &lt;hr/&gt;
+
+      &lt;Route exact path=&quot;/&quot; component={Home}/&gt;
+      &lt;Route path=&quot;/routing&quot; component={Routing}/&gt;
+      &lt;Route path=&quot;/topics&quot; component={Topics}/&gt;
+    &lt;/div&gt;
+  &lt;/Router&gt;
+)
 export default App;
 </code></pre>
 

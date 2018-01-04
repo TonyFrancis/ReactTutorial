@@ -5,13 +5,17 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-
+/**
+ * Home Page Component
+ */
 const Home = () => (
   <div>
     <h2>Home</h2>
   </div>
 )
-
+/**
+ * Routing to react-router guide
+ */
 const Routing = () => (
   <div>
     <h2>
@@ -22,12 +26,20 @@ const Routing = () => (
   </div>
 )
 
+/**
+ * Topic page
+ * @param {[object]} match url matching. eg rendering , components
+ */
 const Topic = ({ match }) => (
   <div>
     <h3>{match.params.topicId}</h3>
   </div>
 )
 
+/**
+ * Topics page component with 3 sub topic redirect
+ * @param {[object]} match contains url contains
+ */
 const Topics = ({ match }) => (
   <div>
     <h2>Topics</h2>
@@ -48,14 +60,18 @@ const Topics = ({ match }) => (
         </Link>
       </li>
     </ul>
-
+    {/*
+      secondary routes to each topic
+    */}
     <Route path={`${match.url}/:topicId`} component={Topic}/>
     <Route exact path={match.url} render={() => (
       <h3>Please select a topic.</h3>
     )}/>
   </div>
 )
-
+/**
+ * App contains Base Route for the website.
+ */
 const App = () => (
   <Router>
     <div>

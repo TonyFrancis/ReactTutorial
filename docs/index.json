@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/App.js",
-    "content": "import React, { Component } from 'react';\nimport HelloWorld, {\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n  ComponentDidCatch,\n } from './components';\nimport logo from './logo.svg';\nimport './App.css';\n\n/**\n * BuggyCounter will throw error when counter reach 5\n * @extends React\n */\nclass BuggyCounter extends React.Component {\n  constructor(props) {\n    super(props);\n    this.state = { counter: 0 };\n    this.handleClick = this.handleClick.bind(this);\n  }\n\n  handleClick() {\n    this.setState(({counter}) => ({\n      counter: counter + 1\n    }));\n  }\n\n  render() {\n    if (this.state.counter === 5) {\n      // Simulate a JS error\n      throw new Error('I crashed!');\n    }\n    return <h1 onClick={this.handleClick}>{this.state.counter}</h1>;\n  }\n}\n/**\n * App main class diplays Hello World\n * @extends Component\n */\nclass App extends Component {\n  constructor(props){\n    super(props);\n    this.state = {\n      counter: 1\n    }\n  }\n  /**\n   * render function to render html Component to\n   *      reactVirtualDom\n   * @return {[ReactElement(div)]} [Div element]\n   */\n  render() {\n    return (\n      <ComponentDidCatch>\n        <BuggyCounter />\n      </ComponentDidCatch>\n    );\n  }\n}\n\nexport default App;\n",
+    "content": "import React, { Component } from 'react';\nimport HelloWorld from './components/HelloWorld';\nimport {\n  BrowserRouter as Router,\n  Route,\n  Link\n} from 'react-router-dom'\n/**\n * Home Page Component\n */\nconst Home = () => (\n  <div>\n    <h2>Home</h2>\n  </div>\n)\n/**\n * Routing to react-router guide\n */\nconst Routing = () => (\n  <div>\n    <h2>\n      <Link to=\"https://reacttraining.com/react-router/web/guides/quick-start\" target=\"_blank\">\n        Quick Start Guide to Routing\n      </Link>\n    </h2>\n  </div>\n)\n\n/**\n * Topic page\n * @param {[object]} match url matching. eg rendering , components\n */\nconst Topic = ({ match }) => (\n  <div>\n    <h3>{match.params.topicId}</h3>\n  </div>\n)\n\n/**\n * Topics page component with 3 sub topic redirect\n * @param {[object]} match contains url contains\n */\nconst Topics = ({ match }) => (\n  <div>\n    <h2>Topics</h2>\n    <ul>\n      <li>\n        <Link to={`${match.url}/rendering`}>\n          Rendering with React\n        </Link>\n      </li>\n      <li>\n        <Link to={`${match.url}/components`}>\n          Components\n        </Link>\n      </li>\n      <li>\n        <Link to={`${match.url}/props-v-state`}>\n          Props v. State\n        </Link>\n      </li>\n    </ul>\n    {/*\n      secondary routes to each topic\n    */}\n    <Route path={`${match.url}/:topicId`} component={Topic}/>\n    <Route exact path={match.url} render={() => (\n      <h3>Please select a topic.</h3>\n    )}/>\n  </div>\n)\n/**\n * App contains Base Route for the website.\n */\nconst App = () => (\n  <Router>\n    <div>\n      <ul>\n        <li><Link to=\"/\">Home</Link></li>\n        <li><Link to=\"/routing\">Routing</Link></li>\n        <li><Link to=\"/topics\">Topics</Link></li>\n      </ul>\n\n      <hr/>\n\n      <Route exact path=\"/\" component={Home}/>\n      <Route path=\"/routing\" component={Routing}/>\n      <Route path=\"/topics\" component={Topics}/>\n    </div>\n  </Router>\n)\nexport default App;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/App.js",
     "access": "public",
@@ -576,161 +576,122 @@
   },
   {
     "__docId__": 49,
-    "kind": "class",
-    "name": "BuggyCounter",
+    "kind": "function",
+    "name": "Home",
     "memberof": "src/App.js",
+    "generator": false,
+    "async": false,
     "static": true,
-    "longname": "src/App.js~BuggyCounter",
+    "longname": "src/App.js~Home",
     "access": "public",
     "export": false,
     "importPath": "ReactIntro/src/App.js",
     "importStyle": null,
-    "description": "BuggyCounter will throw error when counter reach 5",
-    "lineNumber": 16,
-    "interface": false,
-    "extends": [
-      "*"
-    ],
+    "description": "Home Page Component",
+    "lineNumber": 11,
+    "params": [],
+    "return": null,
     "ignore": true
   },
   {
     "__docId__": 50,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "src/App.js~BuggyCounter",
+    "kind": "function",
+    "name": "Routing",
+    "memberof": "src/App.js",
     "generator": false,
     "async": false,
-    "static": false,
-    "longname": "src/App.js~BuggyCounter#constructor",
+    "static": true,
+    "longname": "src/App.js~Routing",
     "access": "public",
-    "description": null,
-    "lineNumber": 17,
-    "undocument": true
+    "export": false,
+    "importPath": "ReactIntro/src/App.js",
+    "importStyle": null,
+    "description": "Routing to react-router guide",
+    "lineNumber": 19,
+    "params": [],
+    "return": null,
+    "ignore": true
   },
   {
     "__docId__": 51,
-    "kind": "member",
-    "name": "state",
-    "memberof": "src/App.js~BuggyCounter",
-    "static": false,
-    "longname": "src/App.js~BuggyCounter#state",
+    "kind": "function",
+    "name": "Topic",
+    "memberof": "src/App.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/App.js~Topic",
     "access": "public",
-    "description": null,
-    "lineNumber": 19,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"counter\": *}"
-      ]
-    }
+    "export": false,
+    "importPath": "ReactIntro/src/App.js",
+    "importStyle": null,
+    "description": "Topic page",
+    "lineNumber": 33,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "[object]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "match",
+        "description": "url matching. eg rendering , components"
+      }
+    ],
+    "return": null,
+    "ignore": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "function",
+    "name": "Topics",
+    "memberof": "src/App.js",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/App.js~Topics",
+    "access": "public",
+    "export": false,
+    "importPath": "ReactIntro/src/App.js",
+    "importStyle": null,
+    "description": "Topics page component with 3 sub topic redirect",
+    "lineNumber": 43,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "[object]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "match",
+        "description": "contains url contains"
+      }
+    ],
+    "return": null,
+    "ignore": true
   },
   {
     "__docId__": 53,
-    "kind": "method",
-    "name": "handleClick",
-    "memberof": "src/App.js~BuggyCounter",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/App.js~BuggyCounter#handleClick",
-    "access": "public",
-    "description": "",
-    "lineNumber": 23,
-    "params": [],
-    "return": null
-  },
-  {
-    "__docId__": 54,
-    "kind": "method",
-    "name": "render",
-    "memberof": "src/App.js~BuggyCounter",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/App.js~BuggyCounter#render",
-    "access": "public",
-    "description": "",
-    "lineNumber": 29,
-    "params": [],
-    "return": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 55,
-    "kind": "class",
+    "kind": "function",
     "name": "App",
     "memberof": "src/App.js",
+    "generator": false,
+    "async": false,
     "static": true,
     "longname": "src/App.js~App",
     "access": "public",
     "export": true,
     "importPath": "ReactIntro/src/App.js",
     "importStyle": "App",
-    "description": "App main class diplays Hello World",
-    "lineNumber": 41,
-    "interface": false,
-    "extends": [
-      "*"
-    ]
+    "description": "App contains Base Route for the website.",
+    "lineNumber": 75,
+    "params": [],
+    "return": null
   },
   {
-    "__docId__": 56,
-    "kind": "constructor",
-    "name": "constructor",
-    "memberof": "src/App.js~App",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/App.js~App#constructor",
-    "access": "public",
-    "description": null,
-    "lineNumber": 42,
-    "undocument": true
-  },
-  {
-    "__docId__": 57,
-    "kind": "member",
-    "name": "state",
-    "memberof": "src/App.js~App",
-    "static": false,
-    "longname": "src/App.js~App#state",
-    "access": "public",
-    "description": null,
-    "lineNumber": 44,
-    "undocument": true,
-    "type": {
-      "types": [
-        "{\"counter\": number}"
-      ]
-    }
-  },
-  {
-    "__docId__": 58,
-    "kind": "method",
-    "name": "render",
-    "memberof": "src/App.js~App",
-    "generator": false,
-    "async": false,
-    "static": false,
-    "longname": "src/App.js~App#render",
-    "access": "public",
-    "description": "render function to render html Component to\n     reactVirtualDom ",
-    "lineNumber": 53,
-    "return": {
-      "nullable": null,
-      "types": [
-        "[ReactElement(div)]"
-      ],
-      "spread": false,
-      "description": "[Div element]"
-    },
-    "params": []
-  },
-  {
-    "__docId__": 59,
+    "__docId__": 54,
     "kind": "file",
     "name": "src/App.test.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from './App';\n\nit('renders without crashing', () => {\n  const div = document.createElement('div');\n  ReactDOM.render(<App />, div);\n});\n",
@@ -741,10 +702,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 60,
+    "__docId__": 55,
     "kind": "file",
     "name": "src/components/HelloWorld.jsx",
-    "content": "import React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * style folr the Component\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n\n/**\n * HelloWorld react class component to display hello {name}\n *  this.state varible retain memory of the component to be used later.\n * @extends Component\n */\nclass HelloWorld extends Component {\n  /**\n   *  init function set inital value for the component\n   * @param  {object} props [object with key \"name\"]\n   */\n  constructor(props) {\n    super(props); // needed ( inheritance )\n    /**\n     * state hold data about component at any instance\n     * @type {Object}\n     */\n    this.state = {\n      name: props.name,\n    };\n  }\n  /**\n   *  html part of the component\n   * @return {ReactElement(div)} div component to be displayed\n   */\n  render() {\n    return (\n      <div>\n        <p style={styles.hello}>\n          hello {this.state.name}\n        </p>\n        <input\n          value={this.state.name}\n          onChange={ e => this.setState({ name: e.target.value})}\n          />\n      </div>\n    )\n  }\n}\n\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World', // default value for name is given\n};\nexport default HelloWorld ;\n",
+    "content": "import React, { Component } from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * style folr the Component\n * @type {Object}\n */\nconst styles = {\n  hello: {\n    fontSize: 32,\n    // in react font-size => fontSize\n    // all foo-bar become fooBar\n    // eg background-color => backgroundColor ....\n  },\n};\n\n/**\n * HelloWorld react class component to display hello {name}\n *  this.state varible retain memory of the component to be used later.\n * @extends Component\n */\nclass HelloWorld extends Component {\n  /**\n   *  init function set inital value for the component\n   * @param  {object} props [object with key \"name\"]\n   */\n  constructor(props) {\n    super(props); // needed ( inheritance )\n    /**\n     * state hold data about component at any instance\n     * @type {Object}\n     */\n    this.state = {\n      name: props.name,\n    };\n  }\n  /**\n   *  html part of the component\n   * @return {ReactElement(div)} div component to be displayed\n   */\n  render() {\n    const names = [];\n    for (let i = 0; i< 10 ; i++) {\n      names.push(\n        <h4>hello {this.state.name}</h4>\n      );\n    }\n    return (\n      <div>\n        <input\n          value={this.state.name}\n          onChange={ e => this.setState({ name: e.target.value})}\n          />\n        {names}\n      </div>\n    )\n  }\n}\n\n\nHelloWorld.propTypes = {\n  name: PropTypes.string.isRequired, // name is required of string type\n};\n\nHelloWorld.defaultProps = {\n  name: 'World', // default value for name is given\n};\nexport default HelloWorld ;\n",
     "static": true,
     "longname": "/home/suyati/Desktop/git/ReactIntro/src/components/HelloWorld.jsx",
     "access": "public",
@@ -752,7 +713,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 61,
+    "__docId__": 56,
     "kind": "variable",
     "name": "styles",
     "memberof": "src/components/HelloWorld.jsx",
@@ -775,7 +736,7 @@
     "ignore": true
   },
   {
-    "__docId__": 62,
+    "__docId__": 57,
     "kind": "class",
     "name": "HelloWorld",
     "memberof": "src/components/HelloWorld.jsx",
@@ -793,7 +754,7 @@
     ]
   },
   {
-    "__docId__": 63,
+    "__docId__": 58,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -818,7 +779,7 @@
     ]
   },
   {
-    "__docId__": 64,
+    "__docId__": 59,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -837,7 +798,7 @@
     }
   },
   {
-    "__docId__": 65,
+    "__docId__": 60,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/HelloWorld.jsx~HelloWorld",
@@ -859,7 +820,7 @@
     "params": []
   },
   {
-    "__docId__": 66,
+    "__docId__": 61,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentDidCatch.jsx",
     "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\nclass ComponentDidCatch extends Component {\n  constructor(props) {\n    super(props);\n    this.state = { hasError: false };\n  }\n  /**\n   * default error catching bounder for error propagation.\n   * @param  {Error} error error object\n   * @param  {string} info  desprication\n   */\n  componentDidCatch(error, info) {\n    // Display fallback UI\n    console.log(\"ComponentDidCatch\")\n    this.setState({ hasError: true });\n    console.error(error, info)\n    // You can also log the error to an error reporting service\n    // console.error(error, info);\n  }\n\n  render() {\n    console.log(this.state)\n    if (this.state.hasError) {\n      // You can render any custom fallback UI\n      return <h1>Something went wrong.</h1>;\n    }\n    return this.props.children;\n  }\n}\n\nexport default ComponentDidCatch;\n",
@@ -870,7 +831,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 67,
+    "__docId__": 62,
     "kind": "class",
     "name": "ComponentDidCatch",
     "memberof": "src/components/LifeCycle/ComponentDidCatch.jsx",
@@ -889,7 +850,7 @@
     ]
   },
   {
-    "__docId__": 68,
+    "__docId__": 63,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch",
@@ -903,7 +864,7 @@
     "undocument": true
   },
   {
-    "__docId__": 69,
+    "__docId__": 64,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch",
@@ -920,7 +881,7 @@
     }
   },
   {
-    "__docId__": 70,
+    "__docId__": 65,
     "kind": "method",
     "name": "componentDidCatch",
     "memberof": "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch",
@@ -956,7 +917,7 @@
     "return": null
   },
   {
-    "__docId__": 71,
+    "__docId__": 66,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch",
@@ -975,7 +936,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 67,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentDidMount.jsx",
     "content": "import React, { Component } from 'react'\nimport PropTypes from 'prop-types'\n/**\n * Explains componentDidMount and componentWillMount life cycle.\n * @extends Component\n */\nclass ComponentDidMount extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {}\n  }\n  /**\n   * called after object is mounted.\n   * used for library intergration like jquery, charts etc\n   */\n  componentDidMount() {\n    setTimeout( () => {\n      this.div.innerHTML = \"Something Added\"\n    }, 3000)\n\n  }\n  /**\n   * destructor remove all reference varible called before object is removed from DOM\n   */\n  componentWillUnmount() {\n    this.div = null;\n  }\n  render () {\n    return (\n      <div ref={(div) => this.div = div}>\n         Nothing here\n      </div>\n    )\n  }\n}\n\nexport default ComponentDidMount;\n",
@@ -986,7 +947,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 73,
+    "__docId__": 68,
     "kind": "class",
     "name": "ComponentDidMount",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx",
@@ -1004,7 +965,7 @@
     ]
   },
   {
-    "__docId__": 74,
+    "__docId__": 69,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1018,7 +979,7 @@
     "undocument": true
   },
   {
-    "__docId__": 75,
+    "__docId__": 70,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1035,7 +996,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 71,
     "kind": "method",
     "name": "componentDidMount",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1050,7 +1011,7 @@
     "return": null
   },
   {
-    "__docId__": 77,
+    "__docId__": 72,
     "kind": "method",
     "name": "componentWillUnmount",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1065,7 +1026,7 @@
     "return": null
   },
   {
-    "__docId__": 78,
+    "__docId__": 73,
     "kind": "member",
     "name": "div",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1082,7 +1043,7 @@
     }
   },
   {
-    "__docId__": 79,
+    "__docId__": 74,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount",
@@ -1101,7 +1062,7 @@
     }
   },
   {
-    "__docId__": 80,
+    "__docId__": 75,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentDidUpdate.jsx",
     "content": "import React, { Component } from 'react'\nimport PropTypes from 'prop-types'\n/**\n * Explains componentDidUpdate and componentWillMount life cycle.\n * @extends Component\n */\nclass ComponentDidUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      update: false\n    }\n  }\n  /**\n   * called after object is mounted.\n   * used for library intergration like jquery, charts etc\n   */\n  componentDidMount() {\n    setTimeout( () => {\n      this.div.innerHTML = \"Something Added\"\n    }, 3000)\n\n  }\n  /**\n   * called after object updated\n   * used for library intergration\n   * @param  {object} prevProps changed props\n   * @param  {object} prevState changed state\n   */\n  componentDidUpdate(prevProps, prevState) {\n      this.div.innerHTML = \"Something Updated\"\n  }\n  /**\n   * destructor remove all reference varible called before object is removed from DOM\n   */\n  componentWillUnmount() {\n    this.div = null;\n  }\n  render () {\n    return (\n      <div ref={(div) => this.div = div} onClick={() => this.setState({update: true })}>\n         Nothing here\n      </div>\n    )\n  }\n}\n\nexport default ComponentDidUpdate;\n",
@@ -1112,7 +1073,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 81,
+    "__docId__": 76,
     "kind": "class",
     "name": "ComponentDidUpdate",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx",
@@ -1130,7 +1091,7 @@
     ]
   },
   {
-    "__docId__": 82,
+    "__docId__": 77,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1144,7 +1105,7 @@
     "undocument": true
   },
   {
-    "__docId__": 83,
+    "__docId__": 78,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1161,7 +1122,7 @@
     }
   },
   {
-    "__docId__": 84,
+    "__docId__": 79,
     "kind": "method",
     "name": "componentDidMount",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1176,7 +1137,7 @@
     "return": null
   },
   {
-    "__docId__": 85,
+    "__docId__": 80,
     "kind": "method",
     "name": "componentDidUpdate",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1212,7 +1173,7 @@
     "return": null
   },
   {
-    "__docId__": 86,
+    "__docId__": 81,
     "kind": "method",
     "name": "componentWillUnmount",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1227,7 +1188,7 @@
     "return": null
   },
   {
-    "__docId__": 87,
+    "__docId__": 82,
     "kind": "member",
     "name": "div",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1244,7 +1205,7 @@
     }
   },
   {
-    "__docId__": 88,
+    "__docId__": 83,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentDidUpdate.jsx~ComponentDidUpdate",
@@ -1263,7 +1224,7 @@
     }
   },
   {
-    "__docId__": 89,
+    "__docId__": 84,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentWillMount.jsx",
     "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ComponentWillMount extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      componentWillMount: 'Not mounted',\n    }\n  }\n  /**\n   * Will execute this function before mounting function.\n   */\n  componentWillMount() {\n    let that = this;\n    setTimeout(() => {\n      that.setState({ componentWillMount: 'Mounted'})\n    }, 3000);\n  }\n  render () {\n    return (<div>\n      {this.state.componentWillMount}\n    </div>)\n  }\n}\n\nexport default ComponentWillMount;\n",
@@ -1274,7 +1235,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 90,
+    "__docId__": 85,
     "kind": "class",
     "name": "ComponentWillMount",
     "memberof": "src/components/LifeCycle/ComponentWillMount.jsx",
@@ -1292,7 +1253,7 @@
     ]
   },
   {
-    "__docId__": 91,
+    "__docId__": 86,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
@@ -1306,7 +1267,7 @@
     "undocument": true
   },
   {
-    "__docId__": 92,
+    "__docId__": 87,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
@@ -1323,7 +1284,7 @@
     }
   },
   {
-    "__docId__": 93,
+    "__docId__": 88,
     "kind": "method",
     "name": "componentWillMount",
     "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
@@ -1338,7 +1299,7 @@
     "return": null
   },
   {
-    "__docId__": 94,
+    "__docId__": 89,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentWillMount.jsx~ComponentWillMount",
@@ -1357,7 +1318,7 @@
     }
   },
   {
-    "__docId__": 95,
+    "__docId__": 90,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentWillReceiveProps.jsx",
     "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillReceiveProps workflow.\n * @extends Component\n */\nclass ComponentWillReceiveProps extends Component {\n  constructor(props) {\n    super(props);\n    const { componentWillReceiveProps } = props;\n    this.state = {\n      componentWillReceiveProps\n    }\n  }\n  /**\n   * when props change this function is executed\n   * @param  {object} nextProps changes to props\n   */\n  componentWillReceiveProps(nextProps) {\n    const { componentWillReceiveProps } = nextProps;\n    console.log(\"Update the props\")\n    this.setState({ componentWillReceiveProps })\n  }\n  render () {\n    return (<div>\n      {this.state.componentWillReceiveProps}\n    </div>)\n  }\n}\n\nexport default ComponentWillReceiveProps;\n",
@@ -1368,7 +1329,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 96,
+    "__docId__": 91,
     "kind": "class",
     "name": "ComponentWillReceiveProps",
     "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx",
@@ -1386,7 +1347,7 @@
     ]
   },
   {
-    "__docId__": 97,
+    "__docId__": 92,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
@@ -1400,7 +1361,7 @@
     "undocument": true
   },
   {
-    "__docId__": 98,
+    "__docId__": 93,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
@@ -1417,7 +1378,7 @@
     }
   },
   {
-    "__docId__": 99,
+    "__docId__": 94,
     "kind": "method",
     "name": "componentWillReceiveProps",
     "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
@@ -1443,7 +1404,7 @@
     "return": null
   },
   {
-    "__docId__": 100,
+    "__docId__": 95,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentWillReceiveProps.jsx~ComponentWillReceiveProps",
@@ -1462,7 +1423,7 @@
     }
   },
   {
-    "__docId__": 101,
+    "__docId__": 96,
     "kind": "file",
     "name": "src/components/LifeCycle/ComponentWillUpdate.jsx",
     "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ComponentWillUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      componentWillUpdate: 'Not Updated',\n    }\n  }\n/**\n * called after state update and new props before rendering\n * @param  {object} nextProps change to props\n * @param  {object} nextState change to state\n */\n  componentWillUpdate(nextProps, nextState) {\n    /*\n      No State change is applied here.\n     */\n      console.log(nextState)\n  }\n  render () {\n    return (<div onClick={() => {\n      this.setState({ componentWillUpdate: 'Updated' })}\n    }>\n      {this.state.componentWillUpdate}\n    </div>)\n  }\n}\n\nexport default ComponentWillUpdate;\n",
@@ -1473,7 +1434,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 102,
+    "__docId__": 97,
     "kind": "class",
     "name": "ComponentWillUpdate",
     "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx",
@@ -1491,7 +1452,7 @@
     ]
   },
   {
-    "__docId__": 103,
+    "__docId__": 98,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
@@ -1505,7 +1466,7 @@
     "undocument": true
   },
   {
-    "__docId__": 104,
+    "__docId__": 99,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
@@ -1522,7 +1483,7 @@
     }
   },
   {
-    "__docId__": 105,
+    "__docId__": 100,
     "kind": "method",
     "name": "componentWillUpdate",
     "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
@@ -1558,7 +1519,7 @@
     "return": null
   },
   {
-    "__docId__": 106,
+    "__docId__": 101,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ComponentWillUpdate.jsx~ComponentWillUpdate",
@@ -1577,7 +1538,7 @@
     }
   },
   {
-    "__docId__": 107,
+    "__docId__": 102,
     "kind": "file",
     "name": "src/components/LifeCycle/ShouldComponentUpdate.jsx",
     "content": "import React, { Component} from 'react';\nimport PropTypes from 'prop-types';\n\n/**\n * Shows ComponentWillMount workflow.\n * @extends Component\n */\nclass ShouldComponentUpdate extends Component {\n  constructor(props) {\n    super(props);\n    this.state = {\n      counter: 1,\n    }\n  }\n  /**\n   * performance optimise by updating dom or not based on conditions\n   * @param  {object} nextProps changes to props\n   * @param  {object} nextState changes to state\n   * @return {boolean} if true executes render function else does not do anything\n   */\n  shouldComponentUpdate(nextProps, nextState) {\n    // if true component render else it does not\n    return nextState.counter > 4\n  }\n  render () {\n    return (<div>\n      Counter will only render after counter greater than 4\n      <br />\n        Counter: {this.state.counter}\n      <br />\n      <button\n        onClick={() => {\n          this.setState((prevState) => {\n            return {\n              counter: prevState.counter + 1\n            }\n          })}}>\n      Click to Update counter\n      </button>\n    </div>)\n  }\n}\n\nexport default ShouldComponentUpdate;\n",
@@ -1588,7 +1549,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 108,
+    "__docId__": 103,
     "kind": "class",
     "name": "ShouldComponentUpdate",
     "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx",
@@ -1606,7 +1567,7 @@
     ]
   },
   {
-    "__docId__": 109,
+    "__docId__": 104,
     "kind": "constructor",
     "name": "constructor",
     "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
@@ -1620,7 +1581,7 @@
     "undocument": true
   },
   {
-    "__docId__": 110,
+    "__docId__": 105,
     "kind": "member",
     "name": "state",
     "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
@@ -1637,7 +1598,7 @@
     }
   },
   {
-    "__docId__": 111,
+    "__docId__": 106,
     "kind": "method",
     "name": "shouldComponentUpdate",
     "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
@@ -1680,7 +1641,7 @@
     }
   },
   {
-    "__docId__": 112,
+    "__docId__": 107,
     "kind": "method",
     "name": "render",
     "memberof": "src/components/LifeCycle/ShouldComponentUpdate.jsx~ShouldComponentUpdate",
@@ -1699,7 +1660,7 @@
     }
   },
   {
-    "__docId__": 113,
+    "__docId__": 108,
     "kind": "file",
     "name": "src/components/LifeCycle/index.jsx",
     "content": "import ComponentWillMount from './ComponentWillMount';\nimport ComponentDidMount from './ComponentDidMount';\nimport ComponentWillUpdate from './ComponentWillUpdate';\nimport ComponentWillReceiveProps from './ComponentWillReceiveProps';\nimport ShouldComponentUpdate from './ShouldComponentUpdate';\nimport ComponentDidUpdate from './ComponentDidUpdate';\nimport ComponentDidCatch from './ComponentDidCatch';\n\nexport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n  ComponentDidCatch,\n};\n",
@@ -1710,7 +1671,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 114,
+    "__docId__": 109,
     "kind": "file",
     "name": "src/components/index.jsx",
     "content": "import HelloWorld from './HelloWorld';\nimport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillUpdate,\n  ComponentWillReceiveProps,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n  ComponentDidCatch,\n } from './LifeCycle';\nexport default HelloWorld;\n\nexport {\n  ComponentWillMount,\n  ComponentDidMount,\n  ComponentWillReceiveProps,\n  ComponentWillUpdate,\n  ShouldComponentUpdate,\n  ComponentDidUpdate,\n  ComponentDidCatch,\n};\n",
@@ -1721,7 +1682,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 115,
+    "__docId__": 110,
     "kind": "file",
     "name": "src/index.js",
     "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\nimport './index.css';\nimport App from './App';\nimport registerServiceWorker from './registerServiceWorker';\n\nReactDOM.render(<App />, document.getElementById('root'));\nregisterServiceWorker();\n",
@@ -1741,7 +1702,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"ReactIntro\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-flow-type-plugin\": \"^1.0.1\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-named-import-plugin\": \"0.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"react-scripts\": \"1.0.17\"\n  },\n  \"dependencies\": {\n    \"react\": \"^16.2.0\",\n    \"react-dom\": \"^16.2.0\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"ReactIntro\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"devDependencies\": {\n    \"esdoc\": \"^1.0.4\",\n    \"esdoc-flow-type-plugin\": \"^1.0.1\",\n    \"esdoc-jsx-plugin\": \"^1.0.0\",\n    \"esdoc-named-import-plugin\": \"0.0.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"react-scripts\": \"1.0.17\"\n  },\n  \"dependencies\": {\n    \"react\": \"^16.2.0\",\n    \"react-dom\": \"^16.2.0\",\n    \"react-router\": \"^4.2.0\",\n    \"react-router-dom\": \"^4.2.2\"\n  },\n  \"scripts\": {\n    \"start\": \"react-scripts start\",\n    \"build\": \"react-scripts build\",\n    \"test\": \"react-scripts test --env=jsdom\",\n    \"eject\": \"react-scripts eject\"\n  }\n}\n",
     "longname": "/home/suyati/Desktop/git/ReactIntro/package.json",
     "name": "package.json",
     "static": true,

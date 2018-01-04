@@ -29,7 +29,7 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/App.js~App.html">App</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-App">App</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components">components</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/HelloWorld.jsx~HelloWorld.html">HelloWorld</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#components-lifecycle">components/LifeCycle</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidCatch.jsx~ComponentDidCatch.html">ComponentDidCatch</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/components/LifeCycle/ComponentDidMount.jsx~ComponentDidMount.html">ComponentDidMount</a></span></span></li>
@@ -84,15 +84,19 @@ class HelloWorld extends Component {
    * @return {ReactElement(div)} div component to be displayed
    */
   render() {
+    const names = [];
+    for (let i = 0; i&lt; 10 ; i++) {
+      names.push(
+        &lt;h4&gt;hello {this.state.name}&lt;/h4&gt;
+      );
+    }
     return (
       &lt;div&gt;
-        &lt;p style={styles.hello}&gt;
-          hello {this.state.name}
-        &lt;/p&gt;
         &lt;input
           value={this.state.name}
           onChange={ e =&gt; this.setState({ name: e.target.value})}
           /&gt;
+        {names}
       &lt;/div&gt;
     )
   }
